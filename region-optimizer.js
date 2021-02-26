@@ -11,17 +11,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+let regions; 
 let carbonData;
 let priceData;
+let details;
+
 
 async function fetchData() {
+    await fetch("data/regions.json")
+    .then(data => data.json())
+    .then(json => regions = json);
+
     await fetch("data/carbon.json")
     .then(data => data.json())
     .then(json => carbonData = json);
 
     await fetch("data/prices.json")
-    .then(data => priceData = data.json())
+    .then(data => data.json())
     .then(json => priceData = json);
+
+    await fetch("data/details.json")
+    .then(data => data.json())
+    .then(json => details = json);
 }
 
 /*
@@ -40,16 +51,19 @@ async function fetchData() {
 }
 @return [{
         region: 'us-central1'
+        score: 0.2
     }]
 */
 async function regionOptimizer(inputs) {
-    if(!carbonData || !priceData) {
+    if(!regions || !!carbonData || !priceData) {
         await fetchData();
     }
-    console.log({carbonData, priceData});
+    console.log('Fetched data:')
+    console.log({carbonData, priceData, regions, details});
 
+    let results = [];
 	console.log('Optimizing...');
-	return [];
+	return results;
 }
 
 export {regionOptimizer}
