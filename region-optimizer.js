@@ -11,6 +11,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+let carbonData;
+let priceData;
+
+async function fetchData() {
+    await fetch("data/carbon.json")
+    .then(data => data.json())
+    .then(json => carbonData = json);
+
+    await fetch("data/prices.json")
+    .then(data => priceData = data.json())
+    .then(json => priceData = json);
+}
 
 /*
 @param inputs: {
@@ -26,12 +38,16 @@ limitations under the License.
         'us-central1': 0.2
     }
 }
-@return [
-    {
+@return [{
         region: 'us-central1'
     }]
 */
-function regionOptimizer(inputs) {
+async function regionOptimizer(inputs) {
+    if(!carbonData || !priceData) {
+        await fetchData();
+    }
+    console.log({carbonData, priceData});
+
 	console.log('Optimizing...');
 	return [];
 }
