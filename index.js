@@ -10,6 +10,7 @@ function bindListeners() {
 };
 
 function printResults(results) {
+  console.log("Results:");
   console.log(results);
   const list = document.getElementById('results');
   const template = document.getElementById('result-row');

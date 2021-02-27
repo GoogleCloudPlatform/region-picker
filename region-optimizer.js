@@ -113,9 +113,9 @@ async function regionOptimizer(inputs) {
     if(!regions || !!carbonData || !priceData) {
         await fetchData();
         normalizeData();
+        console.log('Fetched and noralized data:')
+        console.log({carbonData, priceData, regions, details});
     }
-    console.log('Fetched and noralized data:')
-    console.log({carbonData, priceData, regions, details});
 
 	console.log('Optimizing with inputs:');
     console.log(inputs);
