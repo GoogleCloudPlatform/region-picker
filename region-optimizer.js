@@ -35,6 +35,30 @@ async function fetchData() {
     .then(json => details = json);
 }
 
+function normalizeData() {
+    normalizeAttribute(carbonData, "carbon_free_percent");
+    normalizeAttribute(priceData, "gce");
+}
+
+function normalizeAttribute(map, attribute) {
+    let min = Infinity;
+    let max = -Infinity;
+    for (const region in map) {
+        let value = map[region][attribute];
+        if(value > max) {
+            max = value;
+        }
+        if(value < min) {
+            min = value;
+        }
+    }
+    for (const region in map) {
+        if(map[region][attribute]) {
+            map[region][attribute + "_nornalized"] = (map[region][attribute] - min) / (max - min)
+        }
+    }
+}
+
 /*
 @param inputs: {
     weights: {
@@ -57,14 +81,16 @@ async function fetchData() {
 async function regionOptimizer(inputs) {
     if(!regions || !!carbonData || !priceData) {
         await fetchData();
+        normalizeData();
     }
-    console.log('Fetched data:')
+    console.log('Fetched and noralized data:')
     console.log({carbonData, priceData, regions, details});
 
-    let results = [];
 	console.log('Optimizing with inputs:');
     console.log(inputs);
-	return results;
+
+    let results = [];
+    return results;
 }
 
 export {regionOptimizer}
