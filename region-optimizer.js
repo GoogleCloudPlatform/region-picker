@@ -39,7 +39,7 @@ async function fetchData() {
 @param inputs: {
     weights: {
         latency: 0.5,
-        price: 0,5
+        price: 0.5
         carbon: 0.5
     },
     locations: [
@@ -62,7 +62,8 @@ async function regionOptimizer(inputs) {
     console.log({carbonData, priceData, regions, details});
 
     let results = [];
-	console.log('Optimizing...');
+	console.log('Optimizing with inputs:');
+    console.log(inputs);
 	return results;
 }
 
