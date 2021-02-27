@@ -31,17 +31,25 @@ limitations under the License.
 </header>
 
 <main>
-  <p>What do you want to optimize for?</p>
+  <h2>What do you want to optimize for?</h2>
 
-  <label for="latency">Latency:</label>
+  <label for="latency">Lower latency:</label>
   <input type="range" id="latency" name="latency" min="0" max="100" class="weight">
   
-  <label for="carbon">Carbon footprint:</label>
+  <label for="carbon">Lower carbon footprint:</label>
   <input type="range" id="carbon" name="carbon" min="0" max="100" class="weight">
 
-  <label for="price">Price:</label>
+  <label for="price">Lower price:</label>
   <input type="range" id="price" name="price" min="0" max="100" class="weight">
+
+  <h2>Results</h2>
+  <ol id="results"></ol>
+
 </main>
+
+<template id="result-row">
+  <li><p class="region"></p></li>
+</template>
 
 <script type="module" src="index.js"></script>
 </body></html>
