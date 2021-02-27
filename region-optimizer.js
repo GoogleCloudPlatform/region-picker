@@ -16,6 +16,9 @@ let carbonData;
 let priceData;
 let details;
 
+const normalizedSuffix = "_nornalized";
+const cfeAttr = "carbon_free_percent";
+const priceAttr = "gce"
 
 async function fetchData() {
     await fetch("data/regions.json")
@@ -36,8 +39,8 @@ async function fetchData() {
 }
 
 function normalizeData() {
-    normalizeAttribute(carbonData, "carbon_free_percent");
-    normalizeAttribute(priceData, "gce");
+    normalizeAttributes(carbonData, cfeAttr);
+    normalizeAttributes(priceData, priceAttr);
 }
 
 /**
@@ -59,9 +62,32 @@ function normalizeAttributes(map, attribute) {
     }
     for (const region in map) {
         if(map[region][attribute]) {
-            map[region][attribute + "_nornalized"] = (map[region][attribute] - min) / (max - min)
+            map[region][attribute + normalizedSuffix] = (map[region][attribute] - min) / (max - min)
         }
     }
+}
+
+function rankRegions(inputs) {
+    let results = [];
+
+    for(const region of regions) {
+        let score = 
+            // carbon: higher is better
+            carbonData[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon 
+            // price: lower is better
+            + (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
+        if(!isNaN(score))
+        results.push({
+            region: region,
+            score: score,
+        });
+    }
+
+    let resultSorted = results.sort(function(a, b) {
+        return b.score - a.score;
+    });
+
+    return resultSorted;
 }
 
 /*
@@ -94,8 +120,7 @@ async function regionOptimizer(inputs) {
 	console.log('Optimizing with inputs:');
     console.log(inputs);
 
-    let results = [];
-    return results;
+    return rankRegions(inputs);
 }
 
 export {regionOptimizer}
