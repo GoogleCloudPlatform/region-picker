@@ -40,7 +40,12 @@ function normalizeData() {
     normalizeAttribute(priceData, "gce");
 }
 
-function normalizeAttribute(map, attribute) {
+/**
+ * Normalizes the values of a certain attribute of the given map. 
+ * @param {Object} map: a map of <region, data>
+ * @param {String} attribute: the attribute of the map containing the value to normalize
+ */
+function normalizeAttributes(map, attribute) {
     let min = Infinity;
     let max = -Infinity;
     for (const region in map) {
