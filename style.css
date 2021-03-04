@@ -13,3 +13,76 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
+html {
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: hsl(0, 0%, 7%);
+    color: #FFFFFF;
+  }
+}
+
+body{
+  margin: 1.2em;
+  font-size: 1rem;
+}
+
+h1{
+  font-size: 2.5em;
+}
+  
+h2{
+  font-size: 1.75em;
+}
+
+h3{
+  font-size: 1.25em;
+}
+
+a{
+  color:#0064c1;
+}
+a:visited{
+  color:#8d39d0;
+}
+a:hover, a:active{
+  outline-width:0;
+}
+a:hover{
+  color:#f00000;
+}
+@media (prefers-color-scheme: dark) {
+  a{
+    color: hsla(209, 100%, 85%, 1);
+  }
+  a:visited{
+    color: hsla(273, 62%, 85%, 1);
+  }
+}
+
+
+select, label{
+  display:block;
+}
+label:not(:first-child){
+  margin-top:1em;
+}
+p label{
+  display:inline;
+}
+p label + label{
+  margin-left:1em;
+}
+select, input[type], textarea{
+  margin-bottom:1em;
+}
+input[type=checkbox], input[type=radio]{
+  margin-bottom:0;
+}
+
+.disclaimer {
+    font-weight: bold;
+}
