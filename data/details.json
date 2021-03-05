@@ -1,23 +1,74 @@
 {
-    "asia-east1":              "Taiwan",
-    "asia-east2":              "Hong Kong",
-    "asia-northeast1":         "Tokyo",
-    "asia-northeast2":         "Osaka",
-    "asia-northeast3":         "Seoul",
-    "asia-south1":             "Mumbai",
-    "asia-southeast1":         "Singapore",
-    "asia-southeast2":         "Jakarta",
-    "australia-southeast1":    "Sydney",
-    "europe-north1":           "Hamina, Finland",
-    "europe-west1":            "Belgium",
-    "europe-west2":            "London, UK",
-    "europe-west3":            "Frankfurt, Germany",
-    "europe-west4":            "Netherlands",
-    "europe-west6":            "Zurich, Switzerland",
-    "northamerica-northeast1": "Montreal, Canada",
-    "southamerica-east1":      "São Paulo",
-    "us-central1":             "Iowa, USA",
-    "us-east1":                "South Carolina, USA",
-    "us-east4":                "Northern Virginia, USA",
-    "us-west1":                "Oregon, USA"
-  }
+   "asia-east1":{
+      "name":"Taiwan"
+   },
+   "asia-east2":{
+      "name":"Hong Kong"
+   },
+   "asia-northeast1":{
+      "name":"Tokyo"
+   },
+   "asia-northeast2":{
+      "name":"Osaka"
+   },
+   "asia-northeast3":{
+      "name":"Seoul"
+   },
+   "asia-south1":{
+      "name":"Mumbai"
+   },
+   "asia-southeast1":{
+      "name":"Singapore"
+   },
+   "asia-southeast2":{
+      "name":"Jakarta"
+   },
+   "australia-southeast1":{
+      "name":"Sydney"
+   },
+   "europe-north1":{
+      "name":"Hamina, Finland"
+   },
+   "europe-west1":{
+      "name":"Belgium"
+   },
+   "europe-west2":{
+      "name":"London, UK"
+   },
+   "europe-west3":{
+      "name":"Frankfurt, Germany"
+   },
+   "europe-west4":{
+      "name":"Netherlands"
+   },
+   "europe-west6":{
+      "name":"Zurich, Switzerland"
+   },
+   "northamerica-northeast1":{
+      "name":"Montreal, Canada"
+   },
+   "southamerica-east1":{
+      "name":"São Paulo"
+   },
+   "us-central1":{
+      "name":"Iowa, USA"
+   },
+   "us-east1":{
+      "name":"South Carolina, USA"
+   },
+   "us-east4":{
+      "name":"Northern Virginia, USA"
+   },
+   "us-west1":{
+      "name":"Oregon, USA"
+   },
+   "us-west2":{
+      "name":"Los Angeles, USA"
+   },
+   "us-west3":{
+      "name":"Salt Lake city, USA"
+   },
+   "us-west4":{
+      "name":"Las Vegas, USA"
+   }
+}

@@ -40,6 +40,7 @@ function printResults(results) {
   for(let i = 0; i < 5; i++) {
     let row = template.content.cloneNode(true);
     row.querySelector('.region').textContent = results[i].region;
+    row.querySelector('.name').textContent = results[i].name;
     list.appendChild(row);
   }
 

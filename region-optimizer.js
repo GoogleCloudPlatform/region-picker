@@ -82,6 +82,7 @@ function rankRegions(inputs) {
         if(!isNaN(score))
         results.push({
             region: region,
+            name: details[region].name,
             score: score,
         });
     }
@@ -108,7 +109,8 @@ function rankRegions(inputs) {
     }
 }
 @return [{
-        region: 'us-central1'
+        region: 'us-central1',
+        name: '' 
         score: 0.2
     }]
 */
