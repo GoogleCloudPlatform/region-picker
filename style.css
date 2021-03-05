@@ -86,3 +86,7 @@ input[type=checkbox], input[type=radio]{
 .disclaimer {
     font-weight: bold;
 }
+
+.weight-info {
+    color: hsl(0 0% 50%)
+}

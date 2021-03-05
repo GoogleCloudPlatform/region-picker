@@ -50,7 +50,7 @@ function recommendRegion() {
     weights: {}
   };
   for(const input of inputs) {
-    params.weights[input.name] = parseInt(input.value, 10) / 100;
+    params.weights[input.name] = parseInt(input.value, 10) / 10;
   }
 	regionOptimizer(params).then(printResults);
 };
