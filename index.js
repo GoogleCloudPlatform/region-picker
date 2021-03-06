@@ -37,7 +37,7 @@ function printResults(results) {
   }
 
   // Print top regions
-  for(let i = 0; i < 5; i++) {
+  for(let i = 0; i < 10; i++) {
     let row = template.content.cloneNode(true);
     row.querySelector('.region').textContent = results[i].region;
     row.querySelector('.name').textContent = results[i].name;
