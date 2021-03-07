@@ -22,6 +22,7 @@ let details;
 
 const normalizedSuffix = "_nornalized";
 const cfeAttr = "carbon_free_percent";
+const carbonIntensityAttr = "gCO2_kWh";
 const priceAttr = "gce";
 const distanceAttr = "distance";
 
@@ -46,6 +47,7 @@ async function fetchData() {
 
 function normalizeData() {
     normalizeAttributes(carbonData, cfeAttr);
+    normalizeAttributes(carbonData, carbonIntensityAttr);
     normalizeAttributes(priceData, priceAttr);
 }
 
@@ -66,7 +68,8 @@ function distance(destination, origin) {
 }
 
 /**
- * Normalizes the values of a certain attribute of the given map.
+ * Normalizes a certain attribute of the given region map.
+ * Creates a new attribute "ATTRIBUTE_nornalized".
  * @param {Object} map: a map of <region, data>
  * @param {String} attribute: the attribute in data to normalize against
  */
@@ -107,11 +110,19 @@ function rankRegions(inputs) {
     }
 
     for(const region of regions) {
-        let score = 
-            // carbon: higher is better
-            carbonData[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon 
-            // price: lower is better
-            + (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
+        let score = 0;
+        // price: lower is better
+        score += (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
+        // carbon
+        if(carbonData[region]?.[cfeAttr] !== undefined) {
+            // CFE: higher is better
+            score+= carbonData[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon;
+        } else {
+            // Carbon Intensity: Lower is better
+            score+= (1 - carbonData[region]?.[carbonIntensityAttr + normalizedSuffix]) * inputs.weights.carbon;
+        }
+        
+
 
         if(inputs.locations.length > 0) {
             // latency: lower is better
