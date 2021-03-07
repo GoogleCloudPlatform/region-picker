@@ -25,7 +25,10 @@ async function initializeCountrySelect() {
   .then(data => data.json())
   .then(json => countries = json);
 
-  //TODO(sort countries alphabetically)
+  // Sort countries by name.
+  countries.sort(function(a, b) {
+    return a.name.localeCompare(b.name);
+  });
 
   const locationsSelect = document.getElementById('locations');
   for(const country of countries) {
