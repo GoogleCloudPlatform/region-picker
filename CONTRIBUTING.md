@@ -27,3 +27,11 @@ information on using pull requests.
 
 This project follows
 [Google's Open Source Community Guidelines](https://opensource.google/conduct/).
+
+## Development principles
+
+In order to minimize maintenance burden and issues, keep this code simple:
+- Do not add a build step (notably: no TypeScript)
+- Do not use any framework or web component. Only vanilla HTML / JS / CSS. 
+- Do not load third party resources (JS from a CDN, image from another origin...)
+- Do not use npm.
