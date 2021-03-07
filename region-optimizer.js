@@ -94,7 +94,7 @@ function rankRegions(inputs) {
 
     // If latency is a criteria and some locations have been specified,
     // score each region based on proximity to locations.
-    if(inputs.weights.latency > 0 && inputs.locations) {
+    if(inputs.weights.latency > 0 && inputs.locations.length > 0) {
         latencyData = {};
         for(const region of regions) {
             let d = 0;
@@ -111,9 +111,12 @@ function rankRegions(inputs) {
             // carbon: higher is better
             carbonData[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon 
             // price: lower is better
-            + (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price
+            + (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
+
+        if(inputs.locations.length > 0) {
             // latency: lower is better
-            + (1 - latencyData[region]?.[distanceAttr + normalizedSuffix]) * inputs.weights.latency;
+            score += (1 - latencyData?.[region]?.[distanceAttr + normalizedSuffix]) * inputs.weights.latency;
+        }
 
         if(!isNaN(score))
         results.push({

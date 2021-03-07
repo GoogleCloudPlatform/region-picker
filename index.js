@@ -17,14 +17,34 @@ limitations under the License.
 import { regionOptimizer } from './region-optimizer.js';
 
 let inputs;
-
 let userCoords;
+let countries;
+
+async function initializeCountrySelect() {
+  await fetch("data/countries.json")
+  .then(data => data.json())
+  .then(json => countries = json);
+
+  //TODO(sort countries alphabetically)
+
+  const locationsSelect = document.getElementById('locations');
+  for(const country of countries) {
+    const option = document.createElement("option");
+    // Stoe the stringified object as option value.
+    // Adding the actual values as data- attribute mighe be nicer.
+    option.value = JSON.stringify(country);
+    option.text = country.name;
+    locationsSelect.add(option);
+  }
+}
 
 function bindListeners() {
   inputs = document.querySelectorAll('.weight');
   for(const input of inputs) {
     input.addEventListener('input', recommendRegion);
   }
+
+  document.getElementById('locations').addEventListener('change', recommendRegion); 
 };
 
 function printResults(results) {
@@ -39,7 +59,7 @@ function printResults(results) {
   }
 
   // Print top regions
-  for(let i = 0; i < 10; i++) {
+  for(let i = 0; i < Math.min(10, results.length); i++) {
     let row = template.content.cloneNode(true);
     row.querySelector('.region').textContent = results[i].region;
     row.querySelector('.name').textContent = results[i].name;
@@ -53,12 +73,28 @@ function recommendRegion() {
     weights: {},
     locations: [],
   };
+
+  // Add weights
   for(const input of inputs) {
     params.weights[input.name] = parseInt(input.value, 10) / 10;
   }
-  if(userCoords) {
-      params.locations.push(userCoords);
+
+  // Add current location and any other selected country.
+  const locationSelect = document.getElementById('locations')
+  for(const option of locationSelect.options) {
+    if(option.selected) {
+      if(option.value === "--current-location--") {
+        if(userCoords) {
+          params.locations.push(userCoords);
+        } else {
+          console.log("Current location not available.");
+        }
+      } else {
+        params.locations.push(JSON.parse(option.value));
+      }
+    }
   }
+
   regionOptimizer(params).then(printResults);
 };
 
@@ -67,5 +103,6 @@ navigator.geolocation.getCurrentPosition((position) => {
     recommendRegion();
 });
 
+initializeCountrySelect();
 bindListeners();
 recommendRegion();
