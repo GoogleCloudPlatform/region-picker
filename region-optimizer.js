@@ -17,13 +17,16 @@ limitations under the License.
 let regions; 
 let carbonData;
 let priceData;
+let latencyData;
 let details;
 
 const normalizedSuffix = "_nornalized";
 const cfeAttr = "carbon_free_percent";
-const priceAttr = "gce"
+const priceAttr = "gce";
+const distanceAttr = "distance";
 
 async function fetchData() {
+    // TODO: fetch these in parrallel.
     await fetch("data/regions.json")
     .then(data => data.json())
     .then(json => regions = json);
@@ -46,10 +49,26 @@ function normalizeData() {
     normalizeAttributes(priceData, priceAttr);
 }
 
+function distance(destination, origin) {
+    // Thanks https://www.movable-type.co.uk/scripts/latlong.html
+    const R = 6371e3; // metres
+    const φ1 = origin.latitude * Math.PI/180; // φ, λ in radians
+    const φ2 = destination.latitude * Math.PI/180;
+    const Δφ = (destination.latitude - origin.latitude) * Math.PI/180;
+    const Δλ = (destination.longitude - origin.longitude) * Math.PI/180;
+
+    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ/2) * Math.sin(Δλ/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+    return  R * c; // in metres
+}
+
 /**
- * Normalizes the values of a certain attribute of the given map. 
+ * Normalizes the values of a certain attribute of the given map.
  * @param {Object} map: a map of <region, data>
- * @param {String} attribute: the attribute of the map containing the value to normalize
+ * @param {String} attribute: the attribute in data to normalize against
  */
 function normalizeAttributes(map, attribute) {
     let min = Infinity;
@@ -73,12 +92,29 @@ function normalizeAttributes(map, attribute) {
 function rankRegions(inputs) {
     let results = [];
 
+    // If latency is a criteria and some locations have been specified,
+    // score each region based on proximity to locations.
+    if(inputs.weights.latency > 0 && inputs.locations) {
+        latencyData = {};
+        for(const region of regions) {
+            let d = 0;
+            for(const location of inputs.locations) {
+                d += distance(location, details[region]);
+            }
+            latencyData[region] = {distance: d};
+        }
+        normalizeAttributes(latencyData, distanceAttr);
+    }
+
     for(const region of regions) {
         let score = 
             // carbon: higher is better
             carbonData[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon 
             // price: lower is better
-            + (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
+            + (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price
+            // latency: lower is better
+            + (1 - latencyData[region]?.[distanceAttr + normalizedSuffix]) * inputs.weights.latency;
+
         if(!isNaN(score))
         results.push({
             region: region,
@@ -102,7 +138,7 @@ function rankRegions(inputs) {
         carbon: 0.5
     },
     locations: [
-        {lat, long}
+        {latitude, longitude}
     ],
     currentLocationLatencies: {
         'us-central1': 0.2

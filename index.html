@@ -29,19 +29,13 @@ limitations under the License.
 <body>
 <header>
   <h1>Google Cloud region recommender</h1>
-  <p>Helper tool to pick a Google Cloud region, taking price and carbon footprint into account.</p>
+  <p>Helper tool to pick a Google Cloud region, taking carbon footprint, price and latency into account. Read more about Google Cloud [sustainability efforts](https://cloud.google.com/sustainability).</p>
+  <p>Data is never uploaded. All processing is happening client side in your browser. This tool is <a href="https://github.com/GoogleCloudPlatform/region-picker">on GitHub</a>.</p>
   <p class="disclaimer">This is not an officially supported Google product.</p>
 </header>
 
 <main>
   <h2>What do you want to optimize for?</h2>
-
-  <!-- 
-  <label for="latency">Lower latency:</label>
-  <span class="weight-info">Not important</span>
-  <input type="range" id="latency" name="latency" min="0" max="100" class="weight">
-  <span class="weight-info">Important</span>
-  -->
   
   <label for="carbon">Lower carbon footprint:</label>
   <span class="weight-info">Not important</span>
@@ -53,13 +47,26 @@ limitations under the License.
   <input type="range" id="price" name="price" min="0" max="10" class="weight">
   <span class="weight-info">Important</span>
 
+  <label for="latency">Lower latency:</label>
+  <span class="weight-info">Not important</span>
+  <input type="range" id="latency" name="latency" min="0" max="10" class="weight">
+  <span class="weight-info">Important</span>
+
   <h2>Results</h2>
   <ol id="results"></ol>
+
+  <p class="footnotes">
+    Carbon footprint is approximated using the yearly Carbon free energy percentage as well as the average carbon intensidy of the grid, <a href="https://cloud.google.com/sustainability/region-carbon">read more</a>.
+    <br/>
+    Latency is approxiated using physical distance between selected countries and country of the region.
+    <br/>
+    Price is approximated using <a href="https://cloud.google.com/compute/all-pricing#e2_machine-types">Google Compute Engine E2 instance vCPU price</a>.
+  </p>
 
 </main>
 
 <template id="result-row">
-  <li><span class="region"></span> (<span class="name"></span>)</li>
+  <li><span class="region region-code"></span> (<span class="name"></span>)</li>
 </template>
 
 <script type="module" src="index.js"></script>

@@ -18,6 +18,8 @@ import { regionOptimizer } from './region-optimizer.js';
 
 let inputs;
 
+let userCoords;
+
 function bindListeners() {
   inputs = document.querySelectorAll('.weight');
   for(const input of inputs) {
@@ -48,13 +50,22 @@ function printResults(results) {
 
 function recommendRegion() {
   let params = {
-    weights: {}
+    weights: {},
+    locations: [],
   };
   for(const input of inputs) {
     params.weights[input.name] = parseInt(input.value, 10) / 10;
   }
-	regionOptimizer(params).then(printResults);
+  if(userCoords) {
+      params.locations.push(userCoords);
+  }
+  regionOptimizer(params).then(printResults);
 };
+
+navigator.geolocation.getCurrentPosition((position) => { 
+    userCoords = position.coords;
+    recommendRegion();
+});
 
 bindListeners();
 recommendRegion();

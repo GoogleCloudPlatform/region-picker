@@ -87,6 +87,10 @@ input[type=checkbox], input[type=radio]{
     font-weight: bold;
 }
 
-.weight-info {
+.weight-info, .footnotes {
     color: hsl(0 0% 50%)
+}
+
+.region-code {
+    font-family: monospace;
 }
