@@ -29,7 +29,7 @@ limitations under the License.
 <body>
 <header>
   <h1>Google Cloud region recommender</h1>
-  <p>Helper tool to pick a Google Cloud region, taking carbon footprint, price and latency into account. Read more about Google Cloud [sustainability efforts](https://cloud.google.com/sustainability).</p>
+  <p>Helper tool to pick a Google Cloud region, taking carbon footprint (before offset), price and latency into account. Read more about Google Cloud [sustainability efforts](https://cloud.google.com/sustainability).</p>
   <p>Data is never uploaded. All processing is happening client side in your browser. This tool is <a href="https://github.com/GoogleCloudPlatform/region-picker">on GitHub</a>.</p>
   <p class="disclaimer">This is not an officially supported Google product.</p>
 </header>
@@ -61,11 +61,13 @@ limitations under the License.
   <ol id="results"></ol>
 
   <p class="footnotes">
-    Carbon footprint is approximated using the yearly carbon free energy percentage as well as the average carbon intensidy of the datacenter, <a href="https://cloud.google.com/sustainability/region-carbon">read more</a>.
+    <b>Carbon footprint</b> is approximated using the yearly carbon free energy percentage and average electricity carbon intensity of the region.
+    Google invests in enough renewable energy and carbon offsets to neutralize the global operational carbon emissions footprint of Google Cloud per the GHG protocol under the Scope 2 market-based methodology.
+    <a href="https://cloud.google.com/sustainability/region-carbon">Read more</a>.
     <br/>
-    Latency is approxiated using physical distance between selected countries and the city or country of the datacenter.
+    <b></b>Latency</b> is approxiated using physical distance between selected countries and the city or country of the region.
     <br/>
-    Price is approximated using <a href="https://cloud.google.com/compute/all-pricing#e2_machine-types">Google Compute Engine E2 instance vCPU price</a>.
+    <b></b>Price</b> is approximated using <a href="https://cloud.google.com/compute/all-pricing#e2_machine-types">Google Compute Engine E2 instance vCPU price</a>.
   </p>
 
 </main>
