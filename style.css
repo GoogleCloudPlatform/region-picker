@@ -83,14 +83,27 @@ input[type=checkbox], input[type=radio]{
   margin-bottom:0;
 }
 
-.disclaimer {
-    font-weight: bold;
-}
-
 .weight-info, .footnotes {
     color: hsl(0 0% 50%)
 }
 
 .region-code {
     font-family: monospace;
+}
+
+.weight-group {
+    background-repeat: no-repeat; 
+    padding-left: calc(24px + 6px);
+}
+
+.weight-group.carbon {
+    background-image: url(images/icons/eco-24px.svg);
+}
+
+.weight-group.price {
+    background-image: url(images/icons/attach_money-24px.svg);
+}
+
+.weight-group.latency {
+    background-image: url(images/icons/timer-24px.svg);
 }

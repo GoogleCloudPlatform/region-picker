@@ -53,31 +53,37 @@ limitations under the License.
 <header>
   <h1>Google Cloud region recommender</h1>
   <p>Helper tool to pick a Google Cloud region, taking carbon footprint (before offset), price and latency into account.</p>
-  <p><span class="disclaimer">This is not an officially supported Google product</span>. Read more about Google Cloud <a href="https://cloud.google.com/sustainability">sustainability efforts</a>.</p>
+  <p>This is not an officially supported Google product. Read more about Google Cloud <a href="https://cloud.google.com/sustainability">sustainability efforts</a>.</p>
 </header>
 
 <main>
   <h2>What do you want to optimize for?</h2>
   
-  <label for="carbon">Lower carbon footprint:</label>
-  <span class="weight-info">Not important</span>
-  <input type="range" id="carbon" name="carbon" min="0" max="10" class="weight">
-  <span class="weight-info">Important</span>
+  <div class="weight-group carbon">
+    <label for="carbon">Lower carbon footprint:</label>
+    <span class="weight-info">Not important</span>
+    <input type="range" id="carbon" name="carbon" min="0" max="10" class="weight">
+    <span class="weight-info">Important</span>
+  </div>
 
-  <label for="price">Lower price:</label>
-  <span class="weight-info">Not important</span>
-  <input type="range" id="price" name="price" min="0" max="10" class="weight">
-  <span class="weight-info">Important</span>
+  <div class="weight-group price">
+    <label for="price">Lower price:</label>
+    <span class="weight-info">Not important</span>
+    <input type="range" id="price" name="price" min="0" max="10" class="weight">
+    <span class="weight-info">Important</span>
+  </div>
 
-  <label for="latency">Lower latency:</label>
-  <span class="weight-info">Not important</span>
-  <input type="range" id="latency" name="latency" min="0" max="10" class="weight">
-  <span class="weight-info">Important</span>
+  <div class="weight-group latency">
+    <label for="latency" class="weight-title">Lower latency:</label>
+    <span class="weight-info">Not important</span>
+    <input type="range" id="latency" name="latency" min="0" max="10" class="weight">
+    <span class="weight-info">Important</span>
 
-  <label for="locations">Where is your traffic coming from? (multiple selection allowed)</label>
-  <select multiple id="locations" name="locations">
+    <label for="locations">Where is your traffic coming from? (multiple selection allowed)</label>
+    <select multiple id="locations" name="locations">
       <option value="--current-location--" selected>Your current location</option>
-  </select>
+    </select>
+  </div>
 
   <h2>Recommended regions</h2>
   <ol id="results"></ol>
