@@ -16,22 +16,44 @@ limitations under the License.
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Google Cloud location recommender</title>
+  <title>Google Cloud region recommender</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Helper tool to pick a Google Cloud region, taking latency, price and carbon footprint into account.">
   <meta name="theme-color" content="#1c74e9">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="images/todo.svg">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Google Cloud region recommender">
+  <meta name="twitter:description" content="Helper tool to pick a Google Cloud region, taking latency, price and carbon footprint into account.">
+  <meta name="twitter:image" content="https://googlecloudplatform.github.io/region-picker/images/gcp-region-picker.png">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Google Cloud region recommender">
+  <meta property="og:description" content="Helper tool to pick a Google Cloud region, taking latency, price and carbon footprint into account.">
+  <meta property="og:url" content="https://googlecloudplatform.github.io/region-picker">
+  <meta property="og:image" content="https://googlecloudplatform.github.io/region-picker/images/gcp-region-picker.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Google Cloud region recommender",
+    "abstract": "Helper tool to pick a Google Cloud region, taking latency, price and carbon footprint into account.",
+    "url": "https://googlecloudplatform.github.io/region-picker",
+    "image": "https://googlecloudplatform.github.io/region-picker/images/gcp-region-picker.png"
+  }
+  </script>
 
 </head>
 
 <body>
 <header>
   <h1>Google Cloud region recommender</h1>
-  <p>Helper tool to pick a Google Cloud region, taking carbon footprint (before offset), price and latency into account. Read more about Google Cloud [sustainability efforts](https://cloud.google.com/sustainability).</p>
-  <p>Data is never uploaded. All processing is happening client side in your browser. This tool is <a href="https://github.com/GoogleCloudPlatform/region-picker">on GitHub</a>.</p>
-  <p class="disclaimer">This is not an officially supported Google product.</p>
+  <p>Helper tool to pick a Google Cloud region, taking carbon footprint (before offset), price and latency into account.</p>
+  <p><span class="disclaimer">This is not an officially supported Google product</span>. Read more about Google Cloud <a href="https://cloud.google.com/sustainability">sustainability efforts</a>.</p>
 </header>
 
 <main>
@@ -57,18 +79,21 @@ limitations under the License.
       <option value="--current-location--" selected>Your current location</option>
   </select>
 
-  <h2>Results</h2>
+  <h2>Recommended regions</h2>
   <ol id="results"></ol>
 
   <p class="footnotes">
-    <b>Carbon footprint</b> is approximated using the yearly carbon free energy percentage and average electricity carbon intensity of the region.
-    Google invests in enough renewable energy and carbon offsets to neutralize the global operational carbon emissions footprint of Google Cloud per the GHG protocol under the Scope 2 market-based methodology.
-    <a href="https://cloud.google.com/sustainability/region-carbon">Read more</a>.
+    <b>Carbon footprint</b> is approximated using the yearly carbon free energy percentage and average electricity carbon intensity of the region (<a href="https://cloud.google.com/sustainability/region-carbon">source</a>).
+    Google <a href="https://cloud.google.com/sustainability">invests</a> in enough renewable energy and carbon offsets to neutralize the global operational carbon emissions footprint of Google Cloud per the GHG protocol under the Scope 2 market-based methodology.
     <br/>
-    <b></b>Latency</b> is approxiated using physical distance between selected countries and the city or country of the region.
+    <b>Latency</b> is approxiated using physical distance between selected countries and the city or country of the region.
     <br/>
-    <b></b>Price</b> is approximated using <a href="https://cloud.google.com/compute/all-pricing#e2_machine-types">Google Compute Engine E2 instance vCPU price</a>.
+    <b>Price</b> is approximated using <a href="https://cloud.google.com/compute/all-pricing#e2_machine-types">Google Compute Engine E2 instance vCPU price</a>.
+    <br/>  
+    All processing is happening client side in your browser. Data is never uploaded.
   </p>
+
+  <p>Contribute or report issues <a href="https://github.com/GoogleCloudPlatform/region-picker">on GitHub</a>.</p>
 
 </main>
 
