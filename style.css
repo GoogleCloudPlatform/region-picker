@@ -14,6 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+:root {
+  --base-width: 35rem;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.4;
@@ -63,6 +67,27 @@ a:hover{
   }
 }
 
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.group {
+  width: var(--base-width);
+}
+
+@media (max-width: calc(2* 35rem)) {
+  main {
+    display: block;
+  }
+
+  .group {
+    max-width: var(--base-width);
+    width: auto;
+  }
+
+}
 
 select, label{
   display:block;
