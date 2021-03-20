@@ -32,9 +32,9 @@ async function fetchData() {
     .then(data => data.json())
     .then(json => regions = json);
 
-    await fetch("data/carbon.json")
-    .then(data => data.json())
-    .then(json => carbonData = json);
+    await fetch("data/carbon/data/yearly/2019.csv")
+    .then(data => data.text())
+    .then(text => parseCarbonCSV(text));
 
     await fetch("data/prices.json")
     .then(data => data.json())
@@ -44,6 +44,24 @@ async function fetchData() {
     .then(data => data.json())
     .then(json => details = json);
 }
+
+/**
+ * Parse CSV file from https://github.com/GoogleCloudPlatform/region-carbon-info/ 
+ * @param {String} text : CSV file as a string
+ */
+function parseCarbonCSV(text) {
+    let rows = text.split('\r\n').map(row => row.split(','));
+
+    carbonData = {};
+
+    for(let r = 1; r < rows.length; r++) {
+        let row = rows[r];
+        carbonData[row[0]] = {
+            'carbon_free_percent': parseFloat(row[2]),
+            'gCO2_kWh': parseInt(row[3], 10)
+        }
+    };
+} 
 
 function normalizeData() {
     normalizeAttributes(carbonData, cfeAttr);
