@@ -47,19 +47,24 @@ async function fetchData() {
 
 /**
  * Parse CSV file from https://github.com/GoogleCloudPlatform/region-carbon-info/ 
- * @param {String} text : CSV file as a string
+ * @param {String} text : CSV file as a string. First row is title, next rows are 'region', 'name', 'CFE', 'intensity'.
  */
 function parseCarbonCSV(text) {
+    // First split each newlines, then split comma. 
     let rows = text.split('\r\n').map(row => row.split(','));
 
     carbonData = {};
-
     for(let r = 1; r < rows.length; r++) {
         let row = rows[r];
-        carbonData[row[0]] = {
-            'carbon_free_percent': parseFloat(row[2]),
-            'gCO2_kWh': parseInt(row[3], 10)
+
+        let regionCarbonData = {};
+        regionCarbonData[carbonIntensityAttr] = parseInt(row[3], 10)
+        let cfe = parseFloat(row[2]);
+        if(cfe){
+            regionCarbonData[cfeAttr] = cfe;
         }
+
+        carbonData[row[0]] = regionCarbonData;
     };
 } 
 
