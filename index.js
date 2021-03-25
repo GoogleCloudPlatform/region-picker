@@ -54,7 +54,6 @@ function printResults(results) {
   console.log("Results:");
   console.log(results);
   const list = document.getElementById('results');
-  const template = document.getElementById('result-row');
 
   // clean the list
   while (list.firstChild) {
@@ -63,14 +62,22 @@ function printResults(results) {
 
   // Print top regions
   for(let i = 0; i < Math.min(10, results.length); i++) {
-    let row = template.content.cloneNode(true);
-    row.querySelector('.region').textContent = results[i].region;
-    row.querySelector('.name').textContent = results[i].properties.name;
-    row.querySelector('.price').textContent = results[i].properties.gce;
-    row.querySelector('.cfe').textContent = results[i].properties.carbon_free_percent;
-    list.appendChild(row);
+    printResultInList(list, results[i]);
   }
+}
 
+/**
+ * Append the given result to the list in the DOM 
+ * @param {*} list DOM <li>
+ * @param {*} result {region, properties, score}
+ */
+function printResultInList(list, result) {
+  let row = document.getElementById('result-row').content.cloneNode(true);
+  row.querySelector('.region').textContent = result.region;
+  row.querySelector('.name').textContent = result.properties.name;
+  row.querySelector('.price').textContent = result.properties.gce;
+  row.querySelector('.cfe').textContent = result.properties.carbon_free_percent;
+  list.appendChild(row);
 }
 
 function recommendRegion() {
