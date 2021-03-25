@@ -1,12 +1,17 @@
 # Updating data 
 
+## Adding a new region
+
+1. Open the file [`data/regions.js`](data/regions.js)
+2. Add the new region
+
 ## Region carbon footprint 
 
 The carbon data is fetched from official GCP carbon data [on GitHub](https://github.com/GoogleCloudPlatform/region-carbon-info) via a Git submodule.
 
 To update the tool to use the latest yearly data:
 
-1. Open the file [region-optimizer.js](region-optimizer.js)
+1. Open the file [`region-optimizer.js`](region-optimizer.js)
 2. Locate the line that loads the `data/carbon/data/yearly/<YEAR>.csv` file
 3. Replace `<YEAR>` with the new year to load
 

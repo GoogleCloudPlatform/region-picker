@@ -18,7 +18,6 @@ let regions;
 let carbonData;
 let priceData;
 let latencyData;
-let details;
 
 const normalizedSuffix = "_nornalized";
 const cfeAttr = "carbon_free_percent";
@@ -28,18 +27,15 @@ const distanceAttr = "distance";
 
 async function fetchData() {
     await Promise.all([ 
-        fetch("data/regions.json")
-            .then(data => data.json())
-            .then(json => regions = json),
         fetch("data/carbon/data/yearly/2019.csv")
             .then(data => data.text())
             .then(text => parseCarbonCSV(text)),
         fetch("data/prices.json")
             .then(data => data.json())
             .then(json => priceData = json),
-        fetch("data/details.json")
+        fetch("data/regions.json")
             .then(data => data.json())
-            .then(json => details = json)
+            .then(json => regions = json)
     ]);
 }
 
@@ -120,17 +116,17 @@ function rankRegions(inputs) {
     // score each region based on proximity to locations.
     if(inputs.weights.latency > 0 && inputs.locations.length > 0) {
         latencyData = {};
-        for(const region of regions) {
+        for(const region in regions) {
             let d = 0;
             for(const location of inputs.locations) {
-                d += distance(location, details[region]);
+                d += distance(location, regions[region]);
             }
             latencyData[region] = {distance: d};
         }
         normalizeAttributes(latencyData, distanceAttr);
     }
 
-    for(const region of regions) {
+    for(const region in regions) {
         let score = 0;
         // price: lower is better
         score += (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
@@ -153,7 +149,7 @@ function rankRegions(inputs) {
         if(!isNaN(score))
         results.push({
             region: region,
-            name: details[region].name,
+            name: regions[region].name,
             score: score,
         });
     }
@@ -190,7 +186,7 @@ async function regionOptimizer(inputs) {
         await fetchData();
         normalizeData();
         console.log('Fetched and noralized data:')
-        console.log({carbonData, priceData, regions, details});
+        console.log({carbonData, priceData, regions});
     }
 
 	console.log('Optimizing with inputs:');
