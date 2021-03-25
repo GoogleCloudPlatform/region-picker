@@ -11,7 +11,7 @@ The carbon data is fetched from official GCP carbon data [on GitHub](https://git
 
 To update the tool to use the latest yearly data:
 
-1. Open the file [`region-optimizer.js`](region-optimizer.js)
+1. Open the file [`region-optimizer.json`](region-optimizer.js)
 2. Locate the line that loads the `data/carbon/data/yearly/<YEAR>.csv` file
 3. Replace `<YEAR>` with the new year to load
 
