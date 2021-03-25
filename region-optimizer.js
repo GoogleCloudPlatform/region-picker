@@ -40,11 +40,9 @@ async function fetchData() {
     ]);
 
     // Merge all data in regions object.
-    for(let region in carbonData) {
-        Object.assign(regions[region], carbonData[region])
-    }
-    for(let region in priceData) {
-        Object.assign(regions[region], priceData[region])
+    for(let region in regions) {
+        Object.assign(regions[region], priceData[region]);
+        Object.assign(regions[region], carbonData[region]);
     }
 }
 
