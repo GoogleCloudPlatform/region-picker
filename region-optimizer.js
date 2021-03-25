@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-let regions; 
+let regions;
 let carbonData;
 let priceData;
 let latencyData;
@@ -27,7 +27,7 @@ const distanceAttr = "distance";
 
 async function fetchData() {
     // Fetch data in parrallel
-    await Promise.all([ 
+    await Promise.all([
         fetch("data/carbon/data/yearly/2019.csv")
             .then(data => data.text())
             .then(text => parseCarbonCSV(text)),
@@ -40,7 +40,7 @@ async function fetchData() {
     ]);
 
     // Merge all data in regions object.
-    for(let region in regions) {
+    for (let region in regions) {
         Object.assign(regions[region], priceData[region]);
         Object.assign(regions[region], carbonData[region]);
     }
@@ -55,18 +55,18 @@ function parseCarbonCSV(text) {
     let rows = text.split('\r\n').map(row => row.split(','));
 
     carbonData = {};
-    for(let r = 1; r < rows.length; r++) {
+    for (let r = 1; r < rows.length; r++) {
         let row = rows[r];
 
         let regionCarbonData = {};
         regionCarbonData[carbonIntensityAttr] = parseInt(row[3], 10)
         let cfe = parseFloat(row[2]);
-        if(cfe){
+        if (cfe) {
             regionCarbonData[cfeAttr] = cfe;
         }
         carbonData[row[0]] = regionCarbonData;
     };
-} 
+}
 
 function normalizeData() {
     normalizeAttributes(regions, cfeAttr);
@@ -77,17 +77,17 @@ function normalizeData() {
 function distance(destination, origin) {
     // Thanks https://www.movable-type.co.uk/scripts/latlong.html
     const R = 6371e3; // metres
-    const φ1 = origin.latitude * Math.PI/180; // φ, λ in radians
-    const φ2 = destination.latitude * Math.PI/180;
-    const Δφ = (destination.latitude - origin.latitude) * Math.PI/180;
-    const Δλ = (destination.longitude - origin.longitude) * Math.PI/180;
+    const φ1 = origin.latitude * Math.PI / 180; // φ, λ in radians
+    const φ2 = destination.latitude * Math.PI / 180;
+    const Δφ = (destination.latitude - origin.latitude) * Math.PI / 180;
+    const Δλ = (destination.longitude - origin.longitude) * Math.PI / 180;
 
-    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-            Math.cos(φ1) * Math.cos(φ2) *
-            Math.sin(Δλ/2) * Math.sin(Δλ/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-    return  R * c; // in metres
+    return R * c; // in metres
 }
 
 /**
@@ -101,15 +101,15 @@ function normalizeAttributes(map, attribute) {
     let max = -Infinity;
     for (const region in map) {
         let value = map[region][attribute];
-        if(value > max) {
+        if (value > max) {
             max = value;
         }
-        if(value < min) {
+        if (value < min) {
             min = value;
         }
     }
     for (const region in map) {
-        if(map[region][attribute]) {
+        if (map[region][attribute]) {
             map[region][attribute + normalizedSuffix] = (map[region][attribute] - min) / (max - min)
         }
     }
@@ -120,39 +120,39 @@ function rankRegions(inputs) {
 
     // If latency is a criteria and some locations have been specified,
     // score each region based on proximity to locations.
-    if(inputs.weights.latency > 0 && inputs.locations.length > 0) {
+    if (inputs.weights.latency > 0 && inputs.locations.length > 0) {
         latencyData = {};
-        for(const region in regions) {
+        for (const region in regions) {
             let d = 0;
-            for(const location of inputs.locations) {
+            for (const location of inputs.locations) {
                 d += distance(location, regions[region]);
             }
-            latencyData[region] = {distance: d};
+            latencyData[region] = { distance: d };
         }
         normalizeAttributes(latencyData, distanceAttr);
     }
 
-    for(const region in regions) {
+    for (const region in regions) {
         let score = 0;
         // price: lower is better
         score += (1 - regions[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
         // carbon
-        if(regions[region]?.[cfeAttr] !== undefined) {
+        if (regions[region]?.[cfeAttr] !== undefined) {
             // CFE: higher is better
-            score+= regions[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon;
+            score += regions[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon;
         } else {
             // Carbon Intensity: Lower is better
-            score+= (1 - regions[region]?.[carbonIntensityAttr + normalizedSuffix]) * inputs.weights.carbon;
+            score += (1 - regions[region]?.[carbonIntensityAttr + normalizedSuffix]) * inputs.weights.carbon;
         }
-        
 
 
-        if(inputs.locations.length > 0) {
+
+        if (inputs.locations.length > 0) {
             // latency: lower is better
             score += (1 - latencyData?.[region]?.[distanceAttr + normalizedSuffix]) * inputs.weights.latency;
         }
 
-        if(!isNaN(score)) {
+        if (!isNaN(score)) {
             results.push({
                 region: region,
                 properties: regions[region],
@@ -161,7 +161,7 @@ function rankRegions(inputs) {
         }
     }
 
-    let resultSorted = results.sort(function(a, b) {
+    let resultSorted = results.sort(function (a, b) {
         return b.score - a.score;
     });
 
@@ -189,17 +189,17 @@ function rankRegions(inputs) {
     }]
 */
 async function regionOptimizer(inputs) {
-    if(!regions) {
+    if (!regions) {
         await fetchData();
         normalizeData();
         console.log('Fetched and noralized data:')
         console.log(regions);
     }
 
-	console.log('Optimizing with inputs:');
+    console.log('Optimizing with inputs:');
     console.log(inputs);
 
     return rankRegions(inputs);
 }
 
-export {regionOptimizer}
+export { regionOptimizer }

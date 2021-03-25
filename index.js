@@ -22,16 +22,16 @@ let countries;
 
 async function initializeCountrySelect() {
   await fetch("data/countries.json")
-  .then(data => data.json())
-  .then(json => countries = json);
+    .then(data => data.json())
+    .then(json => countries = json);
 
   // Sort countries by name.
-  countries.sort(function(a, b) {
+  countries.sort(function (a, b) {
     return a.name.localeCompare(b.name);
   });
 
   const locationsSelect = document.getElementById('locations');
-  for(const country of countries) {
+  for (const country of countries) {
     const option = document.createElement("option");
     // Stoe the stringified object as option value.
     // Adding the actual values as data- attribute mighe be nicer.
@@ -43,11 +43,11 @@ async function initializeCountrySelect() {
 
 function bindListeners() {
   inputs = document.querySelectorAll('.weight');
-  for(const input of inputs) {
+  for (const input of inputs) {
     input.addEventListener('input', recommendRegion);
   }
 
-  document.getElementById('locations').addEventListener('change', recommendRegion); 
+  document.getElementById('locations').addEventListener('change', recommendRegion);
 };
 
 function printResults(results) {
@@ -61,7 +61,7 @@ function printResults(results) {
   }
 
   // Print top regions
-  for(let i = 0; i < Math.min(10, results.length); i++) {
+  for (let i = 0; i < Math.min(10, results.length); i++) {
     printResultInList(list, results[i]);
   }
 }
@@ -87,16 +87,16 @@ function recommendRegion() {
   };
 
   // Add weights
-  for(const input of inputs) {
+  for (const input of inputs) {
     params.weights[input.name] = parseInt(input.value, 10) / 10;
   }
 
   // Add current location and any other selected country.
   const locationSelect = document.getElementById('locations')
-  for(const option of locationSelect.options) {
-    if(option.selected) {
-      if(option.value === "--current-location--") {
-        if(userCoords) {
+  for (const option of locationSelect.options) {
+    if (option.selected) {
+      if (option.value === "--current-location--") {
+        if (userCoords) {
           params.locations.push(userCoords);
         } else {
           console.log("Current location not available.");
@@ -110,9 +110,9 @@ function recommendRegion() {
   regionOptimizer(params).then(printResults);
 };
 
-navigator.geolocation.getCurrentPosition((position) => { 
-    userCoords = position.coords;
-    recommendRegion();
+navigator.geolocation.getCurrentPosition((position) => {
+  userCoords = position.coords;
+  recommendRegion();
 });
 
 initializeCountrySelect();
