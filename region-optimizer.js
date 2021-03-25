@@ -27,22 +27,20 @@ const priceAttr = "gce";
 const distanceAttr = "distance";
 
 async function fetchData() {
-    // TODO: fetch these in parrallel.
-    await fetch("data/regions.json")
-    .then(data => data.json())
-    .then(json => regions = json);
-
-    await fetch("data/carbon/data/yearly/2019.csv")
-    .then(data => data.text())
-    .then(text => parseCarbonCSV(text));
-
-    await fetch("data/prices.json")
-    .then(data => data.json())
-    .then(json => priceData = json);
-
-    await fetch("data/details.json")
-    .then(data => data.json())
-    .then(json => details = json);
+    await Promise.all([ 
+        fetch("data/regions.json")
+            .then(data => data.json())
+            .then(json => regions = json),
+        fetch("data/carbon/data/yearly/2019.csv")
+            .then(data => data.text())
+            .then(text => parseCarbonCSV(text)),
+        fetch("data/prices.json")
+            .then(data => data.json())
+            .then(json => priceData = json),
+        fetch("data/details.json")
+            .then(data => data.json())
+            .then(json => details = json)
+    ]);
 }
 
 /**
