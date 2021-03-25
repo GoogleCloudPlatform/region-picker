@@ -186,7 +186,7 @@ function rankRegions(inputs) {
     }]
 */
 async function regionOptimizer(inputs) {
-    if(!regions || !!carbonData || !priceData) {
+    if(!regions || !carbonData || !priceData) {
         await fetchData();
         normalizeData();
         console.log('Fetched and noralized data:')
