@@ -65,7 +65,9 @@ function printResults(results) {
   for(let i = 0; i < Math.min(10, results.length); i++) {
     let row = template.content.cloneNode(true);
     row.querySelector('.region').textContent = results[i].region;
-    row.querySelector('.name').textContent = results[i].name;
+    row.querySelector('.name').textContent = results[i].properties.name;
+    row.querySelector('.price').textContent = results[i].properties.gce;
+    row.querySelector('.cfe').textContent = results[i].properties.carbon_free_percent;
     list.appendChild(row);
   }
 

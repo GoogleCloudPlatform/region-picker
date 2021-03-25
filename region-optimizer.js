@@ -26,6 +26,7 @@ const priceAttr = "gce";
 const distanceAttr = "distance";
 
 async function fetchData() {
+    // Fetch data in parrallel
     await Promise.all([ 
         fetch("data/carbon/data/yearly/2019.csv")
             .then(data => data.text())
@@ -37,6 +38,14 @@ async function fetchData() {
             .then(data => data.json())
             .then(json => regions = json)
     ]);
+
+    // Merge all data in regions object.
+    for(let region in carbonData) {
+        Object.assign(regions[region], carbonData[region])
+    }
+    for(let region in priceData) {
+        Object.assign(regions[region], priceData[region])
+    }
 }
 
 /**
@@ -57,15 +66,14 @@ function parseCarbonCSV(text) {
         if(cfe){
             regionCarbonData[cfeAttr] = cfe;
         }
-
         carbonData[row[0]] = regionCarbonData;
     };
 } 
 
 function normalizeData() {
-    normalizeAttributes(carbonData, cfeAttr);
-    normalizeAttributes(carbonData, carbonIntensityAttr);
-    normalizeAttributes(priceData, priceAttr);
+    normalizeAttributes(regions, cfeAttr);
+    normalizeAttributes(regions, carbonIntensityAttr);
+    normalizeAttributes(regions, priceAttr);
 }
 
 function distance(destination, origin) {
@@ -129,14 +137,14 @@ function rankRegions(inputs) {
     for(const region in regions) {
         let score = 0;
         // price: lower is better
-        score += (1 - priceData[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
+        score += (1 - regions[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
         // carbon
-        if(carbonData[region]?.[cfeAttr] !== undefined) {
+        if(regions[region]?.[cfeAttr] !== undefined) {
             // CFE: higher is better
-            score+= carbonData[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon;
+            score+= regions[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon;
         } else {
             // Carbon Intensity: Lower is better
-            score+= (1 - carbonData[region]?.[carbonIntensityAttr + normalizedSuffix]) * inputs.weights.carbon;
+            score+= (1 - regions[region]?.[carbonIntensityAttr + normalizedSuffix]) * inputs.weights.carbon;
         }
         
 
@@ -146,12 +154,13 @@ function rankRegions(inputs) {
             score += (1 - latencyData?.[region]?.[distanceAttr + normalizedSuffix]) * inputs.weights.latency;
         }
 
-        if(!isNaN(score))
-        results.push({
-            region: region,
-            name: regions[region].name,
-            score: score,
-        });
+        if(!isNaN(score)) {
+            results.push({
+                region: region,
+                properties: regions[region],
+                score: score,
+            });
+        }
     }
 
     let resultSorted = results.sort(function(a, b) {
@@ -182,11 +191,11 @@ function rankRegions(inputs) {
     }]
 */
 async function regionOptimizer(inputs) {
-    if(!regions || !carbonData || !priceData) {
+    if(!regions) {
         await fetchData();
         normalizeData();
         console.log('Fetched and noralized data:')
-        console.log({carbonData, priceData, regions});
+        console.log(regions);
     }
 
 	console.log('Optimizing with inputs:');
