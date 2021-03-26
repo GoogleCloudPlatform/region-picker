@@ -7,19 +7,27 @@
 
 ## Region carbon footprint 
 
-The carbon data is fetched from official GCP carbon data [on GitHub](https://github.com/GoogleCloudPlatform/region-carbon-info) via a Git submodule.
+The carbon data is copied from the official GCP carbon data [on GitHub](https://github.com/GoogleCloudPlatform/region-carbon-info)
 
-To update the tool to use the latest yearly data:
+To update to the latest yearly data:
 
-1. Open the file [`region-optimizer.json`](region-optimizer.js)
-2. Locate the line that loads the `data/carbon/data/yearly/<YEAR>.csv` file
-3. Replace `<YEAR>` with the new year to load
+1. Make sure the new yearly data is present in a new `.csv` file [in the official repo](https://github.com/GoogleCloudPlatform/region-carbon-info/tree/main/data/yearly)
+2. Open the "raw" version of this new yearly .csv file: https://raw.githubusercontent.com/GoogleCloudPlatform/region-carbon-info/main/data/yearly/YEAR.csv
+3. Copy its content into the [`data/carbon.csv` file](data/carbon.csv).
 
 ## Prices
 
-`prices.json` is a manual copy of [Google Compute Engine E2 CPU prices](https://cloud.google.com/compute/all-pricing#e2_machine-types) 
+Prices are currently based on the SKUs for Google Compute Engine E2 Instance Core.
 
-TODO: Automate creation of `prices.json` by calling the GCP Billing API. See how to do so using [API Explorer](https://cloud.google.com/billing/docs/reference/rest/v1/services.skus/list?authuser=0&apix=true&apix_params=%7B%22parent%22%3A%22services%2F6F81-5844-456A%22%2C%22pageSize%22%3A100%2C%22fields%22%3A%22skus.serviceRegions%2Cskus.category.resourceGroup%2Cskus.pricingInfo%22%7D#try-it) (GCE: `services/6F81-5844-456A`)
+To update to the latest pricing data:
+
+1. Open the Cloud Console
+2. Click Billing > Pricing
+3. Select "View all SKUs"
+4. Filter the table with "SKU Description:E2 Instance Core"
+5. Manually copy all prices into [`data/prices.json`](data/prices.json)  
+
+Alternatively, get the Google Compute Engine E2 Core prices [from the documentation](https://cloud.google.com/compute/all-pricing#e2_machine-types).
 
 ## Countries
 

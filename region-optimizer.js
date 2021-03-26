@@ -28,7 +28,7 @@ const distanceAttr = "distance";
 async function fetchData() {
     // Fetch data in parrallel
     await Promise.all([
-        fetch("data/carbon/data/yearly/2019.csv")
+        fetch("data/carbon.csv")
             .then(data => data.text())
             .then(text => parseCarbonCSV(text)),
         fetch("data/prices.json")
@@ -52,7 +52,7 @@ async function fetchData() {
  */
 function parseCarbonCSV(text) {
     // First split each newlines, then split comma. 
-    let rows = text.split('\r\n').map(row => row.split(','));
+    let rows = text.split('\n').map(row => row.split(','));
 
     carbonData = {};
     for (let r = 1; r < rows.length; r++) {

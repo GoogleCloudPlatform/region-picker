@@ -1,3 +1,0 @@
-[submodule "data/carbon"]
-	path = data/carbon
-	url = https://github.com/GoogleCloudPlatform/region-carbon-info.git
