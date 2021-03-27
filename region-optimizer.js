@@ -28,7 +28,7 @@ const distanceAttr = "distance";
 async function fetchData() {
     // Fetch data in parrallel
     await Promise.all([
-        fetch("data/carbon.csv")
+        fetch("https://googlecloudplatform.github.io/region-carbon-info/data/yearly/2019.csv")
             .then(data => data.text())
             .then(text => parseCarbonCSV(text)),
         fetch("data/prices.json")
