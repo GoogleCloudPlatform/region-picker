@@ -160,6 +160,12 @@ async function recommendRegion() {
       }
     }
   }
+  
+  // TODO: Should we always store params in URL? or only when user hits 'Share'?
+  // In any case, we need to handle the user coordinates in a special way:
+  // First because it's an object that doesn't transforms well in JS.
+  // Second, because we request location by default, so we probably don't want it to be captured in URL.
+  // window.location.hash = encodeURIComponent(JSON.stringify(params));
 
   regionOptimizer(regions, params).then(printResults);
 };
@@ -169,6 +175,11 @@ navigator.geolocation.getCurrentPosition((position) => {
   recommendRegion();
 });
 
+// TODO: Load params from URL
+if(window.location.hash) {
+  let urlParams = JSON.parse(decodeURIComponent(window.location.hash.slice(1)));
+  console.log('TODO: load URL params', urlParams);
+}
 initializeCountrySelect();
 bindListeners();
 recommendRegion();
