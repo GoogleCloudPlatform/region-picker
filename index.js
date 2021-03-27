@@ -101,8 +101,7 @@ function bindListeners() {
 };
 
 function printResults(results) {
-  console.log("Results:");
-  console.log(results);
+  console.log("Results:", results);
   const list = document.getElementById('results');
 
   // clean the list

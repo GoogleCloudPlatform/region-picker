@@ -14,19 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-let regions;
-
 const normalizedSuffix = "_nornalized";
 const cfeAttr = "carbon_free_percent";
 const carbonIntensityAttr = "gCO2_kWh";
 const priceAttr = "gce";
 const distanceAttr = "distance";
-
-function normalizeData() {
-    normalizeAttributes(regions, cfeAttr);
-    normalizeAttributes(regions, carbonIntensityAttr);
-    normalizeAttributes(regions, priceAttr);
-}
 
 function distance(destination, origin) {
     // Thanks https://www.movable-type.co.uk/scripts/latlong.html
@@ -69,9 +61,13 @@ function normalizeAttributes(map, attribute) {
     }
 }
 
-function rankRegions(inputs) {
+function rankRegions(regions, inputs) {
     let results = [];
     let latencyData;
+
+    normalizeAttributes(regions, cfeAttr);
+    normalizeAttributes(regions, carbonIntensityAttr);
+    normalizeAttributes(regions, priceAttr);
 
     // If latency is a criteria and some locations have been specified,
     // score each region based on proximity to locations.
@@ -143,17 +139,10 @@ function rankRegions(inputs) {
         score: 0.2
     }]
 */
-async function regionOptimizer(regionData, inputs) {
-    regions = regionData;
-    normalizeData();
+async function regionOptimizer(regions, inputs) {
+    console.log('Optimizing with:', 'Regions:', regions, 'Inputs:', inputs)
 
-    console.log('Fetched and noralized data:')
-    console.log(regions);
-
-    console.log('Optimizing with inputs:');
-    console.log(inputs);
-
-    return rankRegions(inputs);
+    return rankRegions(regions, inputs);
 }
 
 export { regionOptimizer, cfeAttr, carbonIntensityAttr, priceAttr, distanceAttr }
