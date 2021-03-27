@@ -14,14 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { regionOptimizer, cfeAttr, carbonIntensityAttr, priceAttr, distanceAttr } from './region-optimizer.js';
+import { regionOptimizer, cfeAttr, carbonIntensityAttr } from './region-optimizer.js';
 
 let inputs;
 let userCoords;
-let countries;
 let regions;
 
 async function initializeCountrySelect() {
+  let countries;
+
   await fetch("data/countries.json")
     .then(data => data.json())
     .then(json => countries = json);
