@@ -128,10 +128,7 @@ function rankRegions(regions, inputs) {
     },
     locations: [
         {latitude, longitude}
-    ],
-    currentLocationLatencies: {
-        'us-central1': 0.2
-    }
+    ]
 }
 @return [{
         region: 'us-central1',
