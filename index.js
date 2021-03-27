@@ -14,11 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { regionOptimizer } from './region-optimizer.js';
+import { regionOptimizer, cfeAttr, carbonIntensityAttr, priceAttr, distanceAttr } from './region-optimizer.js';
 
 let inputs;
 let userCoords;
 let countries;
+let regions;
 
 async function initializeCountrySelect() {
   await fetch("data/countries.json")
@@ -39,6 +40,55 @@ async function initializeCountrySelect() {
     option.text = country.name;
     locationsSelect.add(option);
   }
+}
+
+async function fetchData() {
+  let carbonData;
+  let priceData;
+
+  // Fetch data in parrallel
+  await Promise.all([
+      fetch("https://googlecloudplatform.github.io/region-carbon-info/data/yearly/2019.csv")
+          .then(data => data.text())
+          .then(text => carbonData = parseCarbonCSV(text)),
+      fetch("data/prices.json")
+          .then(data => data.json())
+          .then(json => priceData = json),
+      fetch("data/regions.json")
+          .then(data => data.json())
+          .then(json => regions = json)
+  ]);
+
+  // Merge all data in regions object.
+  for (let region in regions) {
+      Object.assign(regions[region], priceData[region]);
+      Object.assign(regions[region], carbonData[region]);
+  }
+}
+
+/**
+ * Parse CSV file from https://github.com/GoogleCloudPlatform/region-carbon-info/ 
+ * @param {String} text : CSV file as a string. First row is title, next rows are 'region', 'name', 'CFE', 'intensity'.
+ * @return Parsed carbon data as Object { 'region': {} }
+ */
+ function parseCarbonCSV(text) {
+  // First split each newlines, then split comma. 
+  let rows = text.split('\n').map(row => row.split(','));
+
+  let carbonData = {};
+  for (let r = 1; r < rows.length; r++) {
+      let row = rows[r];
+
+      let regionCarbonData = {};
+      regionCarbonData[carbonIntensityAttr] = parseInt(row[3], 10)
+      let cfe = parseFloat(row[2]);
+      if (cfe) {
+          regionCarbonData[cfeAttr] = cfe;
+      }
+      carbonData[row[0]] = regionCarbonData;
+  };
+
+  return carbonData;
 }
 
 function bindListeners() {
@@ -80,7 +130,11 @@ function printResultInList(list, result) {
   list.appendChild(row);
 }
 
-function recommendRegion() {
+async function recommendRegion() {
+  if(!regions) {
+    await fetchData();
+  }
+  
   let params = {
     weights: {},
     locations: [],
@@ -107,7 +161,7 @@ function recommendRegion() {
     }
   }
 
-  regionOptimizer(params).then(printResults);
+  regionOptimizer(regions, params).then(printResults);
 };
 
 navigator.geolocation.getCurrentPosition((position) => {

@@ -15,58 +15,12 @@ limitations under the License.
 */
 
 let regions;
-let carbonData;
-let priceData;
-let latencyData;
 
 const normalizedSuffix = "_nornalized";
 const cfeAttr = "carbon_free_percent";
 const carbonIntensityAttr = "gCO2_kWh";
 const priceAttr = "gce";
 const distanceAttr = "distance";
-
-async function fetchData() {
-    // Fetch data in parrallel
-    await Promise.all([
-        fetch("https://googlecloudplatform.github.io/region-carbon-info/data/yearly/2019.csv")
-            .then(data => data.text())
-            .then(text => parseCarbonCSV(text)),
-        fetch("data/prices.json")
-            .then(data => data.json())
-            .then(json => priceData = json),
-        fetch("data/regions.json")
-            .then(data => data.json())
-            .then(json => regions = json)
-    ]);
-
-    // Merge all data in regions object.
-    for (let region in regions) {
-        Object.assign(regions[region], priceData[region]);
-        Object.assign(regions[region], carbonData[region]);
-    }
-}
-
-/**
- * Parse CSV file from https://github.com/GoogleCloudPlatform/region-carbon-info/ 
- * @param {String} text : CSV file as a string. First row is title, next rows are 'region', 'name', 'CFE', 'intensity'.
- */
-function parseCarbonCSV(text) {
-    // First split each newlines, then split comma. 
-    let rows = text.split('\n').map(row => row.split(','));
-
-    carbonData = {};
-    for (let r = 1; r < rows.length; r++) {
-        let row = rows[r];
-
-        let regionCarbonData = {};
-        regionCarbonData[carbonIntensityAttr] = parseInt(row[3], 10)
-        let cfe = parseFloat(row[2]);
-        if (cfe) {
-            regionCarbonData[cfeAttr] = cfe;
-        }
-        carbonData[row[0]] = regionCarbonData;
-    };
-}
 
 function normalizeData() {
     normalizeAttributes(regions, cfeAttr);
@@ -117,6 +71,7 @@ function normalizeAttributes(map, attribute) {
 
 function rankRegions(inputs) {
     let results = [];
+    let latencyData;
 
     // If latency is a criteria and some locations have been specified,
     // score each region based on proximity to locations.
@@ -188,13 +143,12 @@ function rankRegions(inputs) {
         score: 0.2
     }]
 */
-async function regionOptimizer(inputs) {
-    if (!regions) {
-        await fetchData();
-        normalizeData();
-        console.log('Fetched and noralized data:')
-        console.log(regions);
-    }
+async function regionOptimizer(regionData, inputs) {
+    regions = regionData;
+    normalizeData();
+
+    console.log('Fetched and noralized data:')
+    console.log(regions);
 
     console.log('Optimizing with inputs:');
     console.log(inputs);
@@ -202,4 +156,4 @@ async function regionOptimizer(inputs) {
     return rankRegions(inputs);
 }
 
-export { regionOptimizer }
+export { regionOptimizer, cfeAttr, carbonIntensityAttr, priceAttr, distanceAttr }
