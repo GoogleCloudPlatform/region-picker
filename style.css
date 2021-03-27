@@ -89,7 +89,7 @@ main {
 
 }
 
-select, label{
+select {
   display:block;
 }
 label:not(:first-child){
@@ -108,7 +108,15 @@ input[type=checkbox], input[type=radio]{
   margin-bottom:0;
 }
 
-.weight-info, .footnotes {
+/* 
+ * Renove default styling for <details> tag.
+ * See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#customizing_the_disclosure_widget
+ */
+details > summary {
+  list-style: none;
+}
+
+.weight-info {
     color: hsl(0 0% 50%)
 }
 
