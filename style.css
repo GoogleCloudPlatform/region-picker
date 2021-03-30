@@ -19,7 +19,8 @@ limitations under the License.
 }
 
 html {
-  font-family: sans-serif;
+  font-family: 'Google Sans', Arial, sans-serif;
+  font-display: optional; /** Use the font if present within 100ms. A way to keep good perf scores. */
   line-height: 1.4;
 }
 @media (prefers-color-scheme: dark) {
