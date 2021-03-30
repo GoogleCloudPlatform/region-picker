@@ -74,6 +74,21 @@ main {
   justify-content: space-evenly;
 }
 
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #F1F3F4;
+  color: #5F6368;
+  font-size: 0.8rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .group {
   width: var(--base-width);
 }
