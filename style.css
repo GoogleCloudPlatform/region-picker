@@ -20,8 +20,8 @@ limitations under the License.
 
 html {
   font-family: 'Google Sans', Arial, sans-serif;
-  font-display: optional; /** Use the font if present within 100ms. A way to keep good perf scores. */
   line-height: 1.4;
+  height: 100%;
 }
 @media (prefers-color-scheme: dark) {
   html {
@@ -31,8 +31,8 @@ html {
 }
 
 body{
-  margin: 1.2em;
   font-size: 1rem;
+  margin: 0;
 }
 
 h1{
@@ -68,6 +68,14 @@ a:hover{
   }
 }
 
+body {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: stretch;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -75,11 +83,6 @@ main {
 }
 
 footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
   background-color: #F1F3F4;
   color: #5F6368;
   font-size: 0.8rem;
