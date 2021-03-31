@@ -86,7 +86,7 @@ body {
 }
 
 header {
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);;
   height: 64px;
   padding: var(--base-unit);
   background-origin: content-box;
@@ -175,6 +175,13 @@ input[type=checkbox], input[type=radio]{
  */
 details > summary {
   list-style: none;
+}
+
+.params {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);;
+  border-radius: 8px;
+  background-color: white;
+  padding: var(--base-unit);
 }
 
 .weight-info {
