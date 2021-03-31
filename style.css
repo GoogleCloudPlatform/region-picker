@@ -140,7 +140,7 @@ footer {
 select {
   display:block;
   width: 100%;
-  padding: var(--base-unit);
+  padding: calc(var(--base-unit) / 2) var(--base-unit);
   border: none;
   background-color: #F8F9FA;
 }
