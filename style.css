@@ -16,6 +16,7 @@ limitations under the License.
 
 :root {
   --base-width: 35rem;
+  --base-unit: 24px;
 }
 
 html {
@@ -82,10 +83,7 @@ body {
 header {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   height: 64px;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: var(--base-unit);
   background-origin: content-box;
   
   background-repeat: no-repeat; 
@@ -150,9 +148,8 @@ input[type=checkbox], input[type=radio]{
 
   background-repeat: no-repeat; 
   background-image: url(images/icons/share-24px.svg);
-  height: 24px;
-  width: 24px;
-  padding: 12px;
+  height: var(--base-unit);
+  width: var(--base-unit);
   font-size: 0;
 }
 
