@@ -223,3 +223,7 @@ ol#results {
   padding: var(--base-unit);
   margin: var(--base-unit);
 }
+
+#results li .name {
+  padding-left: 1.3rem;
+}
