@@ -22,17 +22,18 @@ html {
   font-family: 'Google Sans', Arial, sans-serif;
   line-height: 1.4;
   height: 100%;
+  box-sizing: border-box;
 }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     background-color: hsl(0, 0%, 7%);
     color: #FFFFFF;
   }
-}
-
-body{
-  font-size: 1rem;
-  margin: 0;
 }
 
 h1{
@@ -69,11 +70,27 @@ a:hover{
 }
 
 body {
+  font-size: 1rem;
+  margin: 0;
   flex-direction: column;
   display: flex;
   justify-content: space-between;
   height: 100%;
   align-items: stretch;
+}
+
+header {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  height: 64px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-origin: content-box;
+  
+  background-repeat: no-repeat; 
+  background-image: url(images/cloud-logo.svg);
+
 }
 
 main {
@@ -125,6 +142,18 @@ select, input[type], textarea{
 }
 input[type=checkbox], input[type=radio]{
   margin-bottom:0;
+}
+
+.icon-button {
+  border: none;
+  float: right;
+
+  background-repeat: no-repeat; 
+  background-image: url(images/icons/share-24px.svg);
+  height: 24px;
+  width: 24px;
+  padding: 12px;
+  font-size: 0;
 }
 
 /* 
