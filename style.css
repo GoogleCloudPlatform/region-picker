@@ -163,8 +163,12 @@ input[type=checkbox], input[type=radio]{
   font-size: 0;
 }
 
+.help {
+  width: 1em;
+}
+
 /* 
- * Renove default styling for <details> tag.
+ * Remove default styling for <details> tag.
  * See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#customizing_the_disclosure_widget
  */
 details > summary {
