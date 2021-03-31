@@ -139,6 +139,10 @@ footer {
 
 select {
   display:block;
+  width: 100%;
+  padding: var(--base-unit);
+  border: none;
+  background-color: #F8F9FA;
 }
 label:not(:first-child){
   margin-top:1em;
@@ -154,6 +158,9 @@ select, input[type], textarea{
 }
 input[type=checkbox], input[type=radio]{
   margin-bottom:0;
+}
+input[type=range] {
+  width: calc(var(--base-width) / 2.5);
 }
 
 .icon-button {
@@ -183,7 +190,7 @@ details > summary {
   box-shadow: var(--shadow-card);
   border-radius: 8px;
   background-color: white;
-  padding: var(--base-unit);
+  padding: calc(2*var(--base-unit));
 }
 
 .weight-info {
