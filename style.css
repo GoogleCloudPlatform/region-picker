@@ -17,6 +17,7 @@ limitations under the License.
 :root {
   --base-width: 35rem;
   --base-unit: 24px;
+  --blue-500: #4285F4;
 }
 
 html {
@@ -37,16 +38,18 @@ html {
   }
 }
 
+h1, h2 {
+  font-style: normal;
+  font-weight: normal;
+}
+
 h1{
   font-size: 2.5em;
 }
   
 h2{
-  font-size: 1.75em;
-}
-
-h3{
   font-size: 1.25em;
+  color: var(--blue-500)
 }
 
 a{
@@ -109,6 +112,13 @@ footer {
 
 .group {
   width: var(--base-width);
+}
+.group.regions {
+  background-color: var(--blue-500);
+}
+
+.group.regions, .group.regions h2 {
+  color: white;
 }
 
 @media (max-width: calc(2* 35rem)) {
