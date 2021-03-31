@@ -115,7 +115,12 @@ footer {
 }
 
 .group {
-  width: var(--base-width);
+  width: 50%;
+}
+.group .content {
+  max-width: var(--base-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 .group.regions {
   background-color: var(--blue-500);
@@ -125,14 +130,15 @@ footer {
   color: white;
 }
 
-@media (max-width: calc(2* 35rem)) {
+@media (max-width: calc(50rem)) {
   main {
     display: block;
   }
 
   .group {
-    max-width: var(--base-width);
-    width: auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
