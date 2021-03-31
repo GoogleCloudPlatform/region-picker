@@ -18,6 +18,7 @@ limitations under the License.
   --base-width: 35rem;
   --base-unit: 24px;
   --blue-500: #4285F4;
+  --shadow-card: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 html {
@@ -86,7 +87,7 @@ body {
 }
 
 header {
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   height: 64px;
   padding: var(--base-unit);
   background-origin: content-box;
@@ -117,9 +118,9 @@ footer {
 }
 .group.regions {
   background-color: var(--blue-500);
+  padding: var(--base-unit);
 }
-
-.group.regions, .group.regions h2 {
+.group.regions h2 {
   color: white;
 }
 
@@ -178,7 +179,7 @@ details > summary {
 }
 
 .params {
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);;
+  box-shadow: var(--shadow-card);
   border-radius: 8px;
   background-color: white;
   padding: var(--base-unit);
@@ -207,4 +208,17 @@ details > summary {
 
 .weight-group.latency {
     background-image: url(images/icons/timer-24px.svg);
+}
+
+ol#results {
+  padding: 0;
+  list-style-position: inside;
+}
+
+#results li {
+  background: #FFFFFF;
+  box-shadow: var(--shadow-card);
+  border-radius: 8px;
+  padding: var(--base-unit);
+  margin: var(--base-unit);
 }

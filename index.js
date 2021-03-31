@@ -111,7 +111,7 @@ function printResults(results) {
   }
 
   // Print top regions
-  for (let i = 0; i < Math.min(10, results.length); i++) {
+  for (let i = 0; i < Math.min(5, results.length); i++) {
     printResultInList(list, results[i]);
   }
 }
