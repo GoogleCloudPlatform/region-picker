@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { regionOptimizer, cfeAttr, carbonIntensityAttr } from './region-optimizer.js';
+import { regionOptimizer } from './region-optimizer.js';
 
 let inputs;
 let userCoords;
@@ -81,10 +81,10 @@ async function fetchData() {
       let row = rows[r];
 
       let regionCarbonData = {};
-      regionCarbonData[carbonIntensityAttr] = parseInt(row[3], 10)
+      regionCarbonData.gCO2_kWh = parseInt(row[3], 10)
       let cfe = parseFloat(row[2]);
       if (cfe) {
-          regionCarbonData[cfeAttr] = cfe;
+          regionCarbonData.cfe = cfe;
       }
       carbonData[row[0]] = regionCarbonData;
   };
@@ -100,6 +100,24 @@ function bindListeners() {
 
   document.getElementById('locations').addEventListener('change', recommendRegion);
 };
+
+function regionToLeaves(region) {
+  if(region.cfe) {
+    return Math.floor(region.cfe * 4);
+  } else {
+    if(region.gCO2_kWh < 200) {
+      return 3
+    } else if(region.gCO2_kWh < 400) {
+      return 2
+    } else if(region.gCO2_kWh < 600) {
+      return 1
+    }
+  }
+}
+
+function regionToDollars(region) {
+  return Math.floor(region.gce_normalized * 2.9 + 1)
+}
 
 function printResults(results) {
   console.log("Results:", results);
@@ -127,6 +145,10 @@ function printResultInList(list, result) {
   row.querySelector('.name').textContent = result.properties.name;
   row.querySelector('.price').textContent = result.properties.gce;
   row.querySelector('.cfe').textContent = result.properties.carbon_free_percent;
+
+  row.querySelector('.leaves').classList.add("n" + regionToLeaves(result.properties));
+  row.querySelector('.dollars').classList.add("n" + regionToDollars(result.properties));
+
   list.appendChild(row);
 }
 

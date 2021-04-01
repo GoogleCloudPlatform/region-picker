@@ -138,10 +138,28 @@ limitations under the License.
 
 <template id="result-row">
   <li>
-    <span class="region region-code"></span>
-    <br/>
-    <span class="name"></span>
-    
+    <div class="list-content">
+      <div class="name-group">
+        <span class="region region-code"></span>
+        <br/>
+        <span class="name"></span>
+      </div>
+
+      <div class="symbols-group">
+        <div class="symbols leaves">
+          <img src="images/icons/gleaf_black_24dp.svg" alt="leaf"/>
+          <img src="images/icons/gleaf_black_24dp.svg" alt="leaf"/>
+          <img src="images/icons/gleaf_black_24dp.svg" alt="leaf"/>
+        </div>
+        <div class="symbols dollars">
+          <img src="images/icons/attach_money-24px.svg" alt="dollar"/>
+          <img src="images/icons/attach_money-24px.svg" alt="dollar"/>
+          <img src="images/icons/attach_money-24px.svg" alt="dollar"/>
+        </div>
+      </div>
+
+    </div>
+
     <span style="display: none;"><span class="price"></span> <span class="cfe"></span></span>
   </li>
 </template>

@@ -14,8 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-const normalizedSuffix = "_nornalized";
-const cfeAttr = "carbon_free_percent";
+const normalizedSuffix = "_normalized";
+const cfeAttr = "cfe";
 const carbonIntensityAttr = "gCO2_kWh";
 const priceAttr = "gce";
 const distanceAttr = "distance";
@@ -142,4 +142,4 @@ async function regionOptimizer(regions, inputs) {
     return rankRegions(regions, inputs);
 }
 
-export { regionOptimizer, cfeAttr, carbonIntensityAttr, priceAttr, distanceAttr }
+export { regionOptimizer }

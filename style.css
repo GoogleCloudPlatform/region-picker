@@ -237,6 +237,20 @@ ol#results {
   margin: var(--base-unit);
 }
 
-#results li .name {
-  padding-left: 1.3rem;
+#results li .list-content {
+  display: inline-flex;
+  justify-content: space-between;
+  width: calc(100% - 1.5rem);
+}
+
+#results li .symbols {
+  width: calc(4* var(--base-unit));
+}
+
+/* Show / Hide leaves or dollars*/
+#results li .symbols.n0 img,
+#results li .symbols.n1 img:nth-child(2),
+#results li .symbols.n1 img:nth-child(3),
+#results li .symbols.n2 img:nth-child(3) {
+  opacity: 0.1;
 }
