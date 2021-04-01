@@ -96,9 +96,7 @@ function rankRegions(regions, inputs) {
             score += (1 - regions[region]?.[carbonIntensityAttr + normalizedSuffix]) * inputs.weights.carbon;
         }
 
-
-
-        if (inputs.locations.length > 0) {
+        if (inputs.weights.latency > 0 && inputs.locations.length > 0) {
             // latency: lower is better
             score += (1 - latencyData?.[region]?.[distanceAttr + normalizedSuffix]) * inputs.weights.latency;
         }
