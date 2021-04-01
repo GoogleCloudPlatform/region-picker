@@ -1,11 +1,13 @@
 {
    "asia-east1":{
       "name":"Taiwan",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg",
       "latitude": 23.69781,
       "longitude": 120.960515
    },
    "asia-east2":{
       "name":"Hong Kong",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Hong_Kong.svg",
       "latitude": 22.396428,
       "longitude": 114.109497
    },
@@ -76,6 +78,7 @@
    },
    "northamerica-northeast1":{
       "name":"Montreal, Canada",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
       "latitude": 45.5017,
       "longitude": -73.5673
    },
@@ -86,36 +89,43 @@
    },
    "us-central1":{
       "name":"Iowa, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 41.8780,
       "longitude": -93.0977
    },
    "us-east1":{
       "name":"South Carolina, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 33.8361,
       "longitude": -81.1637
    },
    "us-east4":{
       "name":"Northern Virginia, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 38.8334,
       "longitude": -77.2365
    },
    "us-west1":{
       "name":"Oregon, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 43.8041,
       "longitude": -120.5542
    },
    "us-west2":{
       "name":"Los Angeles, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 34.0522,
       "longitude": -118.2437
    },
    "us-west3":{
       "name":"Salt Lake City, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 40.7608,
       "longitude": -111.8910
    },
    "us-west4":{
       "name":"Las Vegas, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 36.1699,
       "longitude": -115.1398
    }

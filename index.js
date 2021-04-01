@@ -146,6 +146,8 @@ function printResultInList(list, result) {
   row.querySelector('.price').textContent = result.properties.gce;
   row.querySelector('.cfe').textContent = result.properties.carbon_free_percent;
 
+  row.querySelector('.flag').src = result.properties.flag;
+
   row.querySelector('.leaves').classList.add("n" + regionToLeaves(result.properties));
   row.querySelector('.dollars').classList.add("n" + regionToDollars(result.properties));
 

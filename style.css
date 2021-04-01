@@ -241,10 +241,21 @@ ol#results {
   display: inline-flex;
   justify-content: space-between;
   width: calc(100% - 1.5rem);
+  align-items: center;
+}
+
+#results li .name-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+#results li .flag {
+  width: calc(2 * var(--base-unit));
+  margin: var(--base-unit);
 }
 
 #results li .symbols {
-  width: calc(4* var(--base-unit));
+  width: calc(4 * var(--base-unit));
 }
 
 /* Show / Hide leaves or dollars*/
