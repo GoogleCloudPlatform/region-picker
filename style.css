@@ -251,6 +251,8 @@ ol#results {
 
 #results li .flag {
   width: calc(2 * var(--base-unit));
+  height: calc(2 * var(--base-unit));
+  object-fit: contain;
   margin: var(--base-unit);
 }
 
