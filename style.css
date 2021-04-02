@@ -143,8 +143,11 @@ select, input[type], textarea{
 input[type=checkbox], input[type=radio]{
   margin-bottom:0;
 }
-input[type=range] {
+input.weight {
   width: calc(var(--base-width) / 2.5);
+}
+.zero {
+  opacity: 0.5;
 }
 
 .icon-button {

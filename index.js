@@ -96,6 +96,7 @@ function bindListeners() {
   inputs = document.querySelectorAll('.weight');
   for (const input of inputs) {
     input.addEventListener('input', recommendRegion);
+    input.addEventListener('input', grayOutWhenZero);
   }
 
   document.getElementById('locations').addEventListener('change', recommendRegion);
@@ -159,6 +160,19 @@ function printResultInList(list, result) {
   row.querySelector('.dollars').classList.add("n" + regionToDollars(result.properties));
 
   list.appendChild(row);
+}
+
+/** When the input is set to 0, provide a visual indicator that the inpt isn't used */
+function grayOutWhenZero(event) {
+  if(parseInt(event.target.value, 10) === 0) {
+    event.target.classList.add('zero');
+    if(event.target.id === 'latency') {
+      document.getElementById('locations-group').classList.add('zero')
+    }
+  } else {
+    event.target.classList.remove('zero');
+    document.getElementById('locations-group').classList.remove('zero')
+  }
 }
 
 async function recommendRegion() {
