@@ -99,6 +99,13 @@ function bindListeners() {
   }
 
   document.getElementById('locations').addEventListener('change', recommendRegion);
+
+  document.getElementById('share').addEventListener('click', () => {
+    navigator.share({
+      title: 'Google Cloud region recommender',
+      url: document.location.href,
+    });
+  });
 };
 
 function regionToLeaves(region) {
