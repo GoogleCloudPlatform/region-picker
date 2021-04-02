@@ -250,6 +250,13 @@ ol#results {
     display: block;
   }
 
+  .params {
+    padding: calc(var(--base-unit) / 2);
+  }
+  input[type=range] {
+    /** TODO: do not hardcode 5 */
+    width: calc(var(--base-width) / 5);
+  }
   .group {
     width: 100%;
     margin-left: auto;
