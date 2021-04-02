@@ -101,6 +101,7 @@ footer {
 
 .group {
   width: 50%;
+  padding: var(--base-unit);
 }
 .group .content {
   max-width: var(--base-width);
@@ -109,7 +110,6 @@ footer {
 }
 .group.regions {
   background-color: var(--blue-500);
-  padding: var(--base-unit);
 }
 .group.regions h2 {
   color: white;
@@ -259,10 +259,6 @@ ol#results {
   #share {
     display: block;
     opacity: 100;
-  }
-
-  .group.regions {
-    padding: calc(var(--base-unit) /2);
   }
 
   #results li {
