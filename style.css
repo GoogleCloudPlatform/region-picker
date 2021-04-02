@@ -119,24 +119,6 @@ footer {
   opacity: 0;
 }
 
-@media (max-width: 50rem) {
-  main {
-    display: block;
-  }
-
-  .group {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  #share {
-    display: block;
-    opacity: 100;
-  }
-
-}
-
 select {
   display:block;
   width: 100%;
@@ -261,4 +243,30 @@ ol#results {
 #results li .symbols.n1 img:nth-child(3),
 #results li .symbols.n2 img:nth-child(3) {
   opacity: 0.1;
+}
+
+@media (max-width: 50rem) {
+  main {
+    display: block;
+  }
+
+  .group {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #share {
+    display: block;
+    opacity: 100;
+  }
+
+  .group.regions {
+    padding: calc(var(--base-unit) /2);
+  }
+
+  #results li {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
