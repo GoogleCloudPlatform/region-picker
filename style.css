@@ -17,6 +17,7 @@ limitations under the License.
 :root {
   --base-width: 35rem;
   --base-unit: 24px;
+  --half-unit: calc(var(--base-unit) / 2);
   --blue-500: #4285F4;
   --shadow-card: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -252,7 +253,7 @@ ol#results {
   }
 
   .params {
-    padding: calc(var(--base-unit) / 2);
+    padding: var(--half-unit);
   }
   input[type=range] {
     /** TODO: do not hardcode 5 */
@@ -264,13 +265,32 @@ ol#results {
     margin-right: auto;
   }
 
+  .weight-info {
+    font-size: small;
+  }
+
   #share {
     display: block;
     opacity: 100;
   }
 
   #results li {
+    padding: var(--half-unit);
     margin-left: auto;
     margin-right: auto;
+  }
+
+  #results li .flag {
+    width: var(--base-unit);
+    height: var(--base-unit);
+    margin: var(--half-unit);
+  }
+
+  #results li .symbols {
+    width: calc(2 * var(--base-unit));
+  }
+
+  #results li .symbols img {
+    width: var(--half-unit);
   }
 }
