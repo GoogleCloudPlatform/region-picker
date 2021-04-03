@@ -18,7 +18,7 @@ limitations under the License.
   --base-width: 35rem;
   --base-unit: 24px;
   --half-unit: calc(var(--base-unit) / 2);
-  --blue-500: #4285F4;
+  --blue-500: #1a73e8;
   --shadow-card: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
