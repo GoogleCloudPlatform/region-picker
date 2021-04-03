@@ -31,6 +31,8 @@ limitations under the License.
   <link rel="preload" as="fetch" crossorigin href="data/countries.json">
   <link rel="preload" as="fetch" crossorigin href="data/prices.json">
   <link rel="preload" as="fetch" crossorigin href="https://googlecloudplatform.github.io/region-carbon-info/data/yearly/2019.csv">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=optional" rel="stylesheet"> -->
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700&display=optional" as="font" type="font/woff2" crossorigin />
   <!-- Flags are from wikipedia-->
   <link rel="preconnect" href="https://upload.wikimedia.org">
@@ -79,7 +81,7 @@ limitations under the License.
       
       <div class="weight-group carbon">
         <details>
-          <summary><label for="carbon">Lower carbon footprint</label> <img src="images/icons/help_outline_black_24dp.svg" class="help" alt="A question mark" /></summary>
+          <summary><label for="carbon">Lower carbon footprint</label> <img src="images/icons/help_outline_black_24dp.svg" class="help" alt="A question mark" width="24" height="24" /></summary>
           <p>Approximated using the yearly carbon free energy percentage and average electricity carbon intensity of the region (<a href="https://cloud.google.com/sustainability/region-carbon">source</a>).
             <br/>Google <a href="https://cloud.google.com/sustainability">invests</a> in enough renewable energy and carbon offsets to neutralize the global operational carbon emissions footprint of Google Cloud per the GHG protocol under the Scope 2 market-based methodology.</p>
         </details>
@@ -90,7 +92,7 @@ limitations under the License.
 
       <div class="weight-group price">
         <details>
-          <summary><label for="price">Lower price</label> <img src="images/icons/help_outline_black_24dp.svg" class="help" alt="A question mark"/></summary>
+          <summary><label for="price">Lower price</label> <img src="images/icons/help_outline_black_24dp.svg" class="help" alt="A question mark" width="24" height="24"/></summary>
           <p>Approximated using <a href="https://cloud.google.com/compute/all-pricing#e2_machine-types">Google Compute Engine E2 instance vCPU price</a>.</p>
         </details>
         <span class="weight-info">Not important</span>
@@ -100,7 +102,7 @@ limitations under the License.
 
       <div class="weight-group latency">
         <details>
-          <summary><label for="latency" class="weight-title">Lower latency</label> <img src="images/icons/help_outline_black_24dp.svg" class="help" alt="A question mark"/></summary>
+          <summary><label for="latency" class="weight-title">Lower latency</label> <img src="images/icons/help_outline_black_24dp.svg" class="help" alt="A question mark" width="24" height="24"/></summary>
           <p>Approxiated using physical distance between selected countries and the city or country of the region.</p>
         </details>
         <span class="weight-info">Not important</span>
@@ -143,7 +145,7 @@ limitations under the License.
   <li>
     <div class="list-content">
       <div class="name-group">
-        <img class="flag" alt="flag"/>
+        <img class="flag" alt="flag" width="48" height="48"/>
         <div>
           <span class="region region-code"></span>
           <br/>
@@ -153,14 +155,14 @@ limitations under the License.
 
       <div class="symbols-group">
         <div class="symbols leaves">
-          <img src="images/icons/gleaf_black_24dp.svg" alt="leaf"/>
-          <img src="images/icons/gleaf_black_24dp.svg" alt="leaf"/>
-          <img src="images/icons/gleaf_black_24dp.svg" alt="leaf"/>
+          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
+          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
+          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
         </div>
         <div class="symbols dollars">
-          <img src="images/icons/attach_money-24px.svg" alt="dollar"/>
-          <img src="images/icons/attach_money-24px.svg" alt="dollar"/>
-          <img src="images/icons/attach_money-24px.svg" alt="dollar"/>
+          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
+          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
+          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
         </div>
       </div>
 
