@@ -165,13 +165,17 @@ function printResultInList(list, result) {
 /** When the input is set to 0, provide a visual indicator that the inpt isn't used */
 function grayOutWhenZero(event) {
   if(parseInt(event.target.value, 10) === 0) {
-    event.target.classList.add('zero');
+    document.querySelector('.weight-group.' + event.target.id).classList.add('zero');
     if(event.target.id === 'latency') {
-      document.getElementById('locations-group').classList.add('zero')
+      document.getElementById('locations-group').classList.add('zero');
+      document.getElementById('locations').disabled = true;
     }
   } else {
-    event.target.classList.remove('zero');
-    document.getElementById('locations-group').classList.remove('zero')
+    document.querySelector('.weight-group.' + event.target.id).classList.remove('zero');
+    if(event.target.id === 'latency') {
+      document.getElementById('locations-group').classList.remove('zero');
+      document.getElementById('locations').disabled = false;
+    }
   }
 }
 

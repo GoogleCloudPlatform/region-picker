@@ -147,7 +147,7 @@ input.weight {
   width: calc(var(--base-width) / 2.5);
 }
 .zero {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .icon-button {
