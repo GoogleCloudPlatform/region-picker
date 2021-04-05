@@ -22,7 +22,6 @@ limitations under the License.
   <meta name="description" content="Tool to help you pick a Google Cloud region considering carbon footprint, price and latency.">
   <meta name="theme-color" content="#1c74e9">
 
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
   <!-- pre-load resources -->
@@ -58,6 +57,291 @@ limitations under the License.
     "image": "https://googlecloudplatform.github.io/region-picker/images/gcp-region-picker.png"
   }
   </script>
+
+<style>
+:root {
+  --base-width: 35rem;
+  --base-unit: 24px;
+  --half-unit: calc(var(--base-unit) / 2);
+  --blue-500: #1a73e8;
+  --shadow-card: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+html {
+  font-family: 'Google Sans', Arial, sans-serif;
+  line-height: 1.4;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+h1, h2 {
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1{
+  font-size: 2.5em;
+}  
+h2{
+  font-size: 1.25em;
+}
+
+h1 .accent, h2 {
+  color: var(--blue-500)
+} 
+
+a, a:visited, a:hover{
+  color:black;
+}
+a:hover, a:active{
+  outline-width:0;
+}
+
+body {
+  font-size: 1rem;
+  margin: 0;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: stretch;
+}
+
+header {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  height: 80px; /** not so sure why I need to use such big height to get */
+  padding: var(--base-unit);
+
+  background-origin: content-box;
+  background-repeat: no-repeat; 
+  background-image: url(images/cloud-logo.svg);
+
+}
+
+main {
+  display: flex;
+  flex: 1 0;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+footer {
+  background-color: #F1F3F4;
+  color: #5F6368;
+  font-size: 0.8rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: var(--base-unit);
+}
+
+.group {
+  width: 50%;
+  padding: var(--base-unit);
+}
+.group .content {
+  max-width: var(--base-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+.group.regions {
+  background-color: var(--blue-500);
+}
+.group.regions h2 {
+  color: white;
+}
+
+#share {
+  opacity: 0;
+}
+
+select {
+  display:block;
+  width: 100%;
+  padding: calc(var(--base-unit) / 2) var(--base-unit);
+  border: none;
+  background-color: #F8F9FA;
+}
+label:not(:first-child){
+  margin-top:1em;
+}
+p label{
+  display:inline;
+}
+p label + label{
+  margin-left:1em;
+}
+select, input[type], textarea{
+  margin-bottom:1em;
+}
+input[type=checkbox], input[type=radio]{
+  margin-bottom:0;
+}
+input.weight {
+  width: calc(var(--base-width) / 2.5);
+}
+.zero {
+  opacity: 0.4;
+}
+
+.icon-button {
+  border: none;
+  float: right;
+
+  background-repeat: no-repeat; 
+  background-color: transparent;
+  background-image: url(images/icons/share-24px.svg);
+  height: var(--base-unit);
+  width: var(--base-unit);
+  font-size: 0;
+}
+
+.help {
+  width: 1em;
+  height: 1em;
+}
+
+/* 
+ * Remove default styling for <details> tag.
+ * See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#customizing_the_disclosure_widget
+ */
+details > summary {
+  list-style: none;
+}
+
+.explanation {
+  font-size: small;
+}
+
+.params {
+  box-shadow: var(--shadow-card);
+  border-radius: 8px;
+  background-color: white;
+  padding: calc(2*var(--base-unit));
+}
+
+.weight-info {
+    color: hsl(0 0% 50%)
+}
+
+.region-code {
+    font-family: monospace;
+}
+
+.weight-group {
+    background-repeat: no-repeat; 
+    padding-left: calc(24px + 6px);
+}
+
+.weight-group.carbon {
+    background-image: url(images/icons/gleaf_black_24dp.svg);
+}
+
+.weight-group.price {
+    background-image: url(images/icons/attach_money-24px.svg);
+}
+
+.weight-group.latency {
+    background-image: url(images/icons/timer-24px.svg);
+}
+
+ol#results {
+  padding: 0;
+  list-style-position: inside;
+}
+
+#results li {
+  background: #FFFFFF;
+  box-shadow: var(--shadow-card);
+  border-radius: 8px;
+  padding: var(--base-unit);
+  margin: var(--base-unit);
+}
+
+#results li .list-content {
+  display: inline-flex;
+  justify-content: space-between;
+  width: calc(100% - 1.5rem);
+  align-items: center;
+}
+
+#results li .name-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+#results li .flag {
+  width: calc(2 * var(--base-unit));
+  height: calc(2 * var(--base-unit));
+  object-fit: contain;
+  margin: var(--base-unit);
+}
+
+#results li .symbols {
+  width: calc(4 * var(--base-unit));
+}
+
+/* Show / Hide leaves or dollars*/
+#results li .symbols.n0 img,
+#results li .symbols.n1 img:nth-child(2),
+#results li .symbols.n1 img:nth-child(3),
+#results li .symbols.n2 img:nth-child(3) {
+  opacity: 0.1;
+}
+
+@media (max-width: 50rem) {
+  main {
+    display: block;
+  }
+
+  .params {
+    padding: var(--half-unit);
+  }
+  input[type=range] {
+    /** TODO: do not hardcode 5 */
+    width: calc(var(--base-width) / 5);
+  }
+  .group {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .weight-info {
+    font-size: small;
+  }
+
+  #share {
+    display: block;
+    opacity: 100;
+  }
+
+  #results li {
+    padding: var(--half-unit);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #results li .flag {
+    width: var(--base-unit);
+    height: var(--base-unit);
+    margin: var(--half-unit);
+  }
+
+  #results li .symbols {
+    width: calc(2 * var(--base-unit));
+  }
+
+  #results li .symbols img {
+    width: var(--half-unit);
+  }
+}
+</style>
 
 </head>
 
