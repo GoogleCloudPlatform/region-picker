@@ -261,6 +261,7 @@ ol#results {
   border-radius: 8px;
   padding: var(--base-unit);
   margin: var(--base-unit);
+  min-height: calc(6 * var(--base-unit));
 }
 
 #results li .list-content {
@@ -325,6 +326,7 @@ ol#results {
     padding: var(--half-unit);
     margin-left: auto;
     margin-right: auto;
+    min-height: calc(3 * var(--base-unit));
   }
 
   #results li .flag {
@@ -411,7 +413,14 @@ ol#results {
 <div class="group regions">
   <div class="content">
     <h2>Recommended regions</h2>
-    <ol id="results"></ol>
+    <ol id="results">
+      <!-- Keep 5 placeholder results to avoid layout shift -->
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
   </div>
 </div>
 
