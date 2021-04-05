@@ -158,7 +158,8 @@ function printResultInList(list, result) {
   row.querySelector('.region').textContent = result.region;
   row.querySelector('.name').textContent = result.properties.name;
   row.querySelector('.price').textContent = result.properties.gce;
-  row.querySelector('.cfe').textContent = result.properties.carbon_free_percent;
+  row.querySelector('.cfe').textContent = result.properties.cfe * 100;
+  row.querySelector('.gCO2_kWh').textContent = result.properties.gCO2_kWh;
 
   row.querySelector('.flag').src = result.properties.flag;
 
