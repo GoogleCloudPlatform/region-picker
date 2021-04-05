@@ -110,7 +110,8 @@ function bindListeners() {
     });
   });
 
-  document.getElementById('more').addEventListener('click', () => {
+  document.getElementById('more').addEventListener('click', (event) => {
+    event.target.remove();
     document.getElementById('results').classList.remove('short');
   });
 };
