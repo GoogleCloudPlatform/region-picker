@@ -63,6 +63,7 @@ limitations under the License.
   --base-width: 35rem;
   --base-unit: 24px;
   --half-unit: calc(var(--base-unit) / 2);
+  --rounder-corner: 8px;
   --blue-500: #1a73e8;
   --shadow-card: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -189,16 +190,21 @@ input.weight {
   opacity: 0.4;
 }
 
-.icon-button {
+button {
   border: none;
-  float: right;
-
-  background-repeat: no-repeat; 
   background-color: transparent;
-  background-image: url(images/icons/share-24px.svg);
+}
+
+button.icon-button {
+  background-repeat: no-repeat; 
   height: var(--base-unit);
   width: var(--base-unit);
   font-size: 0;
+}
+
+#share {
+  float: right;
+  background-image: url(images/icons/share-24px.svg);
 }
 
 .help {
@@ -220,7 +226,7 @@ details > summary {
 
 .params {
   box-shadow: var(--shadow-card);
-  border-radius: 8px;
+  border-radius: var(--rounder-corner);
   background-color: white;
   padding: calc(2*var(--base-unit));
 }
@@ -250,7 +256,7 @@ details > summary {
     background-image: url(images/icons/timer-24px.svg);
 }
 
-ol#results {
+#results {
   padding: 0;
   list-style-position: inside;
 }
@@ -258,16 +264,24 @@ ol#results {
 #results li {
   background: #FFFFFF;
   box-shadow: var(--shadow-card);
-  border-radius: 8px;
+  border-radius: var(--rounder-corner);
   padding: var(--base-unit);
   margin: var(--base-unit);
   min-height: calc(6 * var(--base-unit));
 }
 
+#results.short li:nth-child(6),
+#results.short li:nth-child(7),
+#results.short li:nth-child(8),
+#results.short li:nth-child(9),
+#results.short li:nth-child(10) {
+  display: none;
+}
+
 #results li .list-content {
   display: inline-flex;
   justify-content: space-between;
-  width: calc(100% - 1.5rem);
+  width: calc(100% - 2rem);
   align-items: center;
 }
 
@@ -293,6 +307,17 @@ ol#results {
 #results li .symbols.n1 img:nth-child(3),
 #results li .symbols.n2 img:nth-child(3) {
   opacity: 0.1;
+}
+
+#more {
+  color: white;
+  margin: 0 auto;
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--rounder-corner);
+  padding: var(--half-unit);
+  width: 25%;
 }
 
 @media (max-width: 50rem) {
@@ -413,14 +438,20 @@ ol#results {
 <div class="group regions">
   <div class="content">
     <h2>Recommended regions</h2>
-    <ol id="results">
-      <!-- Keep 5 placeholder results to avoid layout shift -->
+    <ol id="results" class="short">
+      <!-- Keep placeholders results to avoid layout shift -->
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
       <li></li>
       <li></li>
       <li></li>
       <li></li>
       <li></li>
     </ol>
+    <button id="more">More</button>
   </div>
 </div>
 

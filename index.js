@@ -16,6 +16,8 @@ limitations under the License.
 
 import { regionOptimizer } from './region-optimizer.js';
 
+const regionsToDisplay = 10;
+
 let inputs;
 let userCoords;
 let regions;
@@ -107,6 +109,10 @@ function bindListeners() {
       url: document.location.href,
     });
   });
+
+  document.getElementById('more').addEventListener('click', () => {
+    document.getElementById('results').classList.remove('short');
+  });
 };
 
 function regionToLeaves(region) {
@@ -137,7 +143,7 @@ function printResults(results) {
   }
 
   // Print top regions
-  for (let i = 0; i < Math.min(5, results.length); i++) {
+  for (let i = 0; i < Math.min(regionsToDisplay, results.length); i++) {
     printResultInList(list, results[i]);
   }
 }
