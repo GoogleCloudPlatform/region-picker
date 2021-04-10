@@ -232,11 +232,21 @@ navigator.geolocation.getCurrentPosition((position) => {
   recommendRegion();
 });
 
+function loadFontAsync() {
+  const url = 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=optional';
+
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = url;
+  document.getElementsByTagName('head')[0].appendChild(link);
+}
+
 // TODO: Load params from URL
 if(window.location.hash) {
   let urlParams = JSON.parse(decodeURIComponent(window.location.hash.slice(1)));
   console.log('TODO: load URL params', urlParams);
 }
 initializeCountrySelect();
+loadFontAsync();
 bindListeners();
 recommendRegion();
