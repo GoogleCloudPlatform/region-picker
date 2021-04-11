@@ -241,17 +241,6 @@ function loadFontAsync() {
   document.getElementsByTagName('head')[0].appendChild(link);
 }
 
-// TODO: Load params from URL
-if(window.location.hash) {
-  let urlParams = JSON.parse(decodeURIComponent(window.location.hash.slice(1)));
-  console.log('TODO: load URL params', urlParams);
-}
 initializeCountrySelect();
 bindListeners();
 recommendRegion();
-
-
-// If user is still here after a while, download Google Sans for next time they visit
-// Doing this async avoids the blocking the rendering while waiting for CSS to downlowd
-// We use a long delay instead of an intant one so that the page becomes fully interactive first.
-setTimeout(loadFontAsync, 10*1000);
