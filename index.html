@@ -275,7 +275,7 @@ details > summary {
   list-style-position: inside;
 }
 
-#results li {
+#results > li {
   background: #FFFFFF;
   box-shadow: var(--shadow-card);
   border-radius: var(--rounder-corner);
@@ -292,34 +292,43 @@ details > summary {
   display: none;
 }
 
-#results li .list-content {
+#results > li details {
+  width: calc(100% - 2rem);
+  display: inline-flex;
+  cursor: pointer;
+}
+
+#results > li ul {
+  padding: 0;
+}
+
+#results > li summary {
   display: inline-flex;
   justify-content: space-between;
-  width: calc(100% - 2rem);
   align-items: center;
 }
 
-#results li .name-group {
+#results > li .name-group {
   display: inline-flex;
   align-items: center;
 }
 
-#results li .flag {
+#results > li .flag {
   width: calc(2 * var(--base-unit));
   height: calc(2 * var(--base-unit));
   object-fit: contain;
   margin: var(--base-unit);
 }
 
-#results li .symbols {
+#results > li .symbols {
   width: calc(4 * var(--base-unit));
 }
 
 /* Show / Hide leaves or dollars*/
-#results li .symbols.n0 img,
-#results li .symbols.n1 img:nth-child(2),
-#results li .symbols.n1 img:nth-child(3),
-#results li .symbols.n2 img:nth-child(3) {
+#results > li .symbols.n0 img,
+#results > li .symbols.n1 img:nth-child(2),
+#results > li .symbols.n1 img:nth-child(3),
+#results > li .symbols.n2 img:nth-child(3) {
   opacity: 0.1;
 }
 
@@ -361,24 +370,24 @@ details > summary {
     opacity: 100;
   }
 
-  #results li {
+  #results > li {
     padding: var(--half-unit);
     margin-left: auto;
     margin-right: auto;
     min-height: calc(3 * var(--base-unit));
   }
 
-  #results li .flag {
+  #results > li .flag {
     width: var(--base-unit);
     height: var(--base-unit);
     margin: var(--half-unit);
   }
 
-  #results li .symbols {
+  #results > li .symbols {
     width: calc(2 * var(--base-unit));
   }
 
-  #results li .symbols img {
+  #results > li .symbols img {
     width: var(--half-unit);
   }
 }
@@ -484,37 +493,38 @@ details > summary {
 
 <template id="result-row">
   <li>
-    <div class="list-content">
-      <div class="name-group">
-        <img class="flag" alt="flag" width="48" height="48"/>
+    <details>
+        <summary class="list-content">
+          <div class="name-group">
+            <img class="flag" alt="flag" width="48" height="48"/>
+            <div>
+              <span class="region region-code"></span>
+              <br/>
+              <span class="name"></span>
+            </div>
+          </div>
+
+          <div class="symbols-group">
+            <div class="symbols leaves">
+              <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
+              <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
+              <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
+            </div>
+            <div class="symbols dollars">
+              <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
+              <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
+              <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
+            </div>
+          </div>
+        </summary>
         <div>
-          <span class="region region-code"></span>
-          <br/>
-          <span class="name"></span>
+          <ul>
+            <li class="cfe-sentence">Carbon Free Energy: <span class="cfe"></span>%</li>
+            <li>Grid carbon intensity: <span class="gCO2_kWh"></span> gCO2eq/kWh</li>
+            <li>Google Compute Engine price: $<span class="price"></span> / vCPU-hour</li>
+          </ul>
         </div>
-      </div>
-
-      <div class="symbols-group">
-        <div class="symbols leaves">
-          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
-          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
-          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/gleaf_black_24dp.svg" alt="leaf" width="24" height="24"/>
-        </div>
-        <div class="symbols dollars">
-          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
-          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
-          <img crossorigin="anonymous" referrerpolicy="no-referrer" src="images/icons/attach_money-24px.svg" alt="dollar" width="24" height="24"/>
-        </div>
-      </div>
-    </div>
-    
-    <div style="display: none;">
-      <ul>
-        <li>Carbon Free Energy: <span class="cfe"></span>%, Grid carbon intensity: <span class="gCO2_kWh"></span> gCO2eq/kWh</li>
-        <li>Google Compute Engine price: $<span class="price"></span> / vCPU hour</li>
-      </ul>
-    </div>
-
+    </details>
   </li>
 </template>
 

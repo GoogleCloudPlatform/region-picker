@@ -163,7 +163,11 @@ function printResultInList(list, result) {
   row.querySelector('.region').textContent = result.region;
   row.querySelector('.name').textContent = result.properties.name;
   row.querySelector('.price').textContent = result.properties.gce;
-  row.querySelector('.cfe').textContent = result.properties.cfe * 100;
+  if(!result.properties.cfe) {
+    row.querySelector('.cfe-sentence').remove();
+  } else {
+    row.querySelector('.cfe').textContent = Math.round(result.properties.cfe * 100);
+  }
   row.querySelector('.gCO2_kWh').textContent = result.properties.gCO2_kWh;
 
   row.querySelector('.flag').src = result.properties.flag;
