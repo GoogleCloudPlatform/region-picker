@@ -56,6 +56,22 @@ limitations under the License.
   </script>
 
 <style>
+/*
+ * The following is manually copied from the stylesheet of the official Google Fonts API
+ * https://fonts.googleapis.com/css2?family=Google+Sans:wght@400&display=optional 
+ * It's unclear if it the src URL is stable.
+ */
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  /* Use optional if we do not tolerate any Layout shift */
+  /* font-display: optional; */
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/googlesans/v27/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --base-width: 35rem;
   --base-unit: 24px;
