@@ -232,6 +232,15 @@ navigator.geolocation.getCurrentPosition((position) => {
   recommendRegion();
 });
 
+function loadFontAsync() {
+  const url = 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=optional';
+
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = url;
+  document.getElementsByTagName('head')[0].appendChild(link);
+}
+
 // TODO: Load params from URL
 if(window.location.hash) {
   let urlParams = JSON.parse(decodeURIComponent(window.location.hash.slice(1)));
@@ -240,3 +249,9 @@ if(window.location.hash) {
 initializeCountrySelect();
 bindListeners();
 recommendRegion();
+
+
+// If user is still here after a while, download Google Sans for next time they visit
+// Doing this async avoids the blocking the rendering while waiting for CSS to downlowd
+// We use a long delay instead of an intant one so that the page becomes fully interactive first.
+setTimeout(loadFontAsync, 10*1000);
