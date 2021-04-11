@@ -21,6 +21,7 @@ const regionsToDisplay = 10;
 let inputs;
 let userCoords;
 let regions;
+let fetching;
 
 async function initializeCountrySelect() {
   let countries;
@@ -46,6 +47,7 @@ async function initializeCountrySelect() {
 }
 
 async function fetchData() {
+  fetching = true;
   let carbonData;
   let priceData;
 
@@ -61,6 +63,8 @@ async function fetchData() {
           .then(data => data.json())
           .then(json => regions = json)
   ]);
+
+  fetching = false;
 
   // Merge all data in regions object.
   for (let region in regions) {
@@ -188,7 +192,7 @@ function grayOutWhenZero(event) {
 }
 
 async function recommendRegion() {
-  if(!regions) {
+  if(!regions && !fetching) {
     await fetchData();
   }
   
