@@ -34,4 +34,10 @@ In order to minimize maintenance burden and issues, keep this code simple:
 - Do not add a build step (notably: no TypeScript)
 - Do not use any framework or web component. Only vanilla HTML / JS / CSS. 
 - Do not load third party resources (JS from a CDN, image from another origin...)
-- Do not use npm.
+- Do not use npm (because of the above requirements, but also for development simplicity)
+
+All graphics must be in `.svg` format, except if they are pictures, in which case they should be `.webp`.
+
+## Performances
+
+Any change should ensure there are no regression in Lighthouse scores (Performance, Accesibility, Best Practices and SEO). If submitting a Pull Request, please attach the Lighthouse scores.
