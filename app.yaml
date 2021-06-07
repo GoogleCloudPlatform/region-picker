@@ -1,5 +1,13 @@
 runtime: nodejs14
 handlers:
+- url: /region-picker/
+  static_files: index.html
+  upload: index.html
+  
+- url: /region-picker/(.+)
+  static_files: \1
+  upload: (.*)
+
 - url: /(.+)
   static_files: \1
   upload: (.*)
