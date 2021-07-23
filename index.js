@@ -125,11 +125,13 @@ function regionToLeaves(region) {
     return Math.floor(region.cfe * 4);
   } else {
     if(region.gCO2_kWh < 200) {
-      return 3
+      return 3;
     } else if(region.gCO2_kWh < 400) {
-      return 2
+      return 2;
     } else if(region.gCO2_kWh < 600) {
-      return 1
+      return 1;
+    } else {
+      return 0;
     }
   }
 }
