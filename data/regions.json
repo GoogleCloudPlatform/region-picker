@@ -30,10 +30,16 @@
       "longitude": 126.9780
    },
    "asia-south1":{
-      "name":"Mumbai",
+      "name":"Delhi",
       "flag": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
       "latitude": 19.0760,
       "longitude": 72.8777
+   },
+   "asia-south2":{
+      "name":"Mumbai",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
+      "latitude": 28.7041,
+      "longitude": 77.1025
    },
    "asia-southeast1":{
       "name":"Singapore",
@@ -52,6 +58,18 @@
       "flag": "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg",
       "latitude": -33.8688,
       "longitude": 151.2093
+   },
+   "australia-southeast2":{
+      "name":"Melbourne",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg",
+      "latitude": -37.8136,
+      "longitude": 144.9631
+   },
+   "europe-central2":{
+      "name":"Warsaw, Poland",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg",
+      "latitude": 52.2297,
+      "longitude": 21.0122
    },
    "europe-north1":{
       "name":"Hamina, Finland",
@@ -90,7 +108,7 @@
       "longitude": 8.5417
    },
    "northamerica-northeast1":{
-      "name":"Montreal, Canada",
+      "name":"Montréal, Canada",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
       "latitude": 45.5017,
       "longitude": -73.5673
