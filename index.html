@@ -45,6 +45,16 @@ limitations under the License.
   <meta property="og:url" content="https://googlecloudplatform.github.io/region-picker">
   <meta property="og:image" content="https://googlecloudplatform.github.io/region-picker/images/gcp-region-picker.png">
 
+  <script>
+    // Serve either at the root of a domain name, or at a subpath with a trailing slash.
+    // Doesn't work at a subpath without a trailing slash (issue #7).
+    let p = window.location.pathname;
+    if( p.length>=1 && p.slice(-1) !== '/' && p.slice(-10) !== 'index.html' ) {
+      // Then redirect
+      window.location.href += '/';
+    }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "http://schema.org",
