@@ -53,7 +53,7 @@ async function fetchData() {
 
   // Fetch data in parrallel
   await Promise.all([
-      fetch("https://googlecloudplatform.github.io/region-carbon-info/data/yearly/2020.csv")
+      fetch("https://googlecloudplatform.github.io/region-carbon-info/data/yearly/2021.csv")
           .then(data => data.text())
           .then(text => carbonData = parseCarbonCSV(text)),
       fetch("data/prices.json")
