@@ -7,7 +7,7 @@
 
 ## Region carbon footprint 
 
-The carbon data is copied from the official GCP carbon data [on GitHub](https://github.com/GoogleCloudPlatform/region-carbon-info)
+The carbon data comes from the officially published GCP carbon data [on GitHub](https://github.com/GoogleCloudPlatform/region-carbon-info)
 
 To update to the latest yearly data:
 
