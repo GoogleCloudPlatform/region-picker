@@ -79,7 +79,7 @@
    },
    "europe-southwest1":{
       "name":"Madrid, Spain",
-      "flag": "https://en.wikipedia.org/wiki/Flag_of_Spain#/media/File:Bandera_de_Espa%C3%B1a.svg",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg",
       "latitude": 40.4167,
       "longitude": -3.7025
    },
@@ -121,7 +121,7 @@
    },
    "europe-west9":{
       "name":"Paris, France",
-      "flag": "https://en.wikipedia.org/wiki/France#/media/File:Flag_of_France.svg",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg",
       "latitude": 48.8566,
       "longitude": 2.3522
    },
@@ -145,7 +145,7 @@
    },
    "southamerica-west1":{
       "name":"Santiago, Chile",
-      "flag": "https://en.wikipedia.org/wiki/Chile#/media/File:Flag_of_Chile.svg",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg",
       "latitude": -33.45,
       "longitude": -70.6667
    },
