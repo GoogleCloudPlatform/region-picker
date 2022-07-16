@@ -1,42 +1,42 @@
 {
    "asia-east1":{
-      "name":"Taiwan",
+      "name":"Taiwan, Republic of China",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg",
       "latitude": 23.69781,
       "longitude": 120.960515
    },
    "asia-east2":{
-      "name":"Hong Kong",
+      "name":"Hong Kong, People's Republic of China",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Hong_Kong.svg",
       "latitude": 22.396428,
       "longitude": 114.109497
    },
    "asia-northeast1":{
-      "name":"Tokyo",
+      "name":"Tokyo, Japan",
       "flag": "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg",
       "latitude": 35.6762,
       "longitude": 139.6503
    },
    "asia-northeast2":{
-      "name":"Osaka",
+      "name":"Osaka, Japan",
       "flag": "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg",
       "latitude": 34.6937,
       "longitude": 135.5023
    },
    "asia-northeast3":{
-      "name":"Seoul",
+      "name":"Seoul, South Korea",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg",
       "latitude": 37.5665,
       "longitude": 126.9780
    },
    "asia-south1":{
-      "name":"Delhi",
+      "name":"Delhi, India",
       "flag": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
       "latitude": 19.0760,
       "longitude": 72.8777
    },
    "asia-south2":{
-      "name":"Mumbai",
+      "name":"Mumbai, India",
       "flag": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
       "latitude": 28.7041,
       "longitude": 77.1025
@@ -48,19 +48,19 @@
       "longitude": 103.8198
    },
    "asia-southeast2":{
-      "name":"Jakarta",
+      "name":"Jakarta, Indonesia",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg",
       "latitude": -6.2088,
       "longitude": 106.8456
    },
    "australia-southeast1":{
-      "name":"Sydney",
+      "name":"Sydney, Australia",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg",
       "latitude": -33.8688,
       "longitude": 151.2093
    },
    "australia-southeast2":{
-      "name":"Melbourne",
+      "name":"Melbourne, Australia",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg",
       "latitude": -37.8136,
       "longitude": 144.9631
@@ -80,8 +80,8 @@
    "europe-southwest1":{
       "name":"Madrid, Spain",
       "flag": "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg",
-      "latitude": 40.4168,
-      "longitude": 3.7038
+      "latitude": 40.4167,
+      "longitude": -3.7025
    },
    "europe-west1":{
       "name":"Belgium",
@@ -116,8 +116,8 @@
    "europe-west8":{
       "name":"Milan, Italy",
       "flag": "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
-      "latitude": 45.4642,
-      "longitude": 9.1900
+      "latitude": 45.4669,
+      "longitude": 9.19
    },
    "europe-west9":{
       "name":"Paris, France",
@@ -134,8 +134,8 @@
    "northamerica-northeast2":{
       "name":"Toronto, Canada",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
-      "latitude": 43.6532,
-      "longitude": -79.3832
+      "latitude": 43.7417,
+      "longitude": -79.3733
    },
    "southamerica-east1":{
       "name":"São Paulo, Brazil",
@@ -146,8 +146,8 @@
    "southamerica-west1":{
       "name":"Santiago, Chile",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg",
-      "latitude": -33.4489,
-      "longitude": -70.6693
+      "latitude": -33.45,
+      "longitude": -70.6667
    },
    "us-central1":{
       "name":"Iowa, USA",
@@ -168,16 +168,16 @@
       "longitude": -77.2365
    },
    "us-east5":{
-      "name":"Columbus, USA",
+      "name":"Columbus, Ohio, USA",
       "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
-      "latitude": 39.9612,
-      "longitude": -82.9988
+      "latitude": 39.9622,
+      "longitude": -83.0006
    },
    "us-south1":{
-      "name":"Dallas, USA",
+      "name":"Dallas, Texas, USA",
       "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
-      "latitude": 32.7767,
-      "longitude": -96.7970
+      "latitude": 32.7792,
+      "longitude": -96.8089
    },
    "us-west1":{
       "name":"Oregon, USA",
@@ -186,19 +186,19 @@
       "longitude": -120.5542
    },
    "us-west2":{
-      "name":"Los Angeles, USA",
+      "name":"Los Angeles, California, USA",
       "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 34.0522,
       "longitude": -118.2437
    },
    "us-west3":{
-      "name":"Salt Lake City, USA",
+      "name":"Salt Lake City, Utah, USA",
       "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 40.7608,
       "longitude": -111.8910
    },
    "us-west4":{
-      "name":"Las Vegas, USA",
+      "name":"Las Vegas, Nevada, USA",
       "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 36.1699,
       "longitude": -115.1398
