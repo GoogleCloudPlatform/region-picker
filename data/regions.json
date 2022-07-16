@@ -77,6 +77,12 @@
       "latitude": 60.5693,
       "longitude": 27.1878
    },
+   "europe-southwest1":{
+      "name":"Madrid, Spain",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg",
+      "latitude": 40.4168,
+      "longitude": 3.7038
+   },
    "europe-west1":{
       "name":"Belgium",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Belgium_%28civil%29.svg",
@@ -107,17 +113,41 @@
       "latitude": 47.3769,
       "longitude": 8.5417
    },
+   "europe-west8":{
+      "name":"Milan, Italy",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+      "latitude": 45.4642,
+      "longitude": 9.1900
+   },
+   "europe-west9":{
+      "name":"Paris, France",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg",
+      "latitude": 48.8566,
+      "longitude": 2.3522
+   },
    "northamerica-northeast1":{
       "name":"Montréal, Canada",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
       "latitude": 45.5017,
       "longitude": -73.5673
    },
+   "northamerica-northeast2":{
+      "name":"Toronto, Canada",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
+      "latitude": 43.6532,
+      "longitude": -79.3832
+   },
    "southamerica-east1":{
-      "name":"São Paulo",
+      "name":"São Paulo, Brazil",
       "flag": "https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg",
       "latitude": -23.5505,
       "longitude": -46.6333
+   },
+   "southamerica-west1":{
+      "name":"Santiago, Chile",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg",
+      "latitude": -33.4489,
+      "longitude": -70.6693
    },
    "us-central1":{
       "name":"Iowa, USA",
@@ -136,6 +166,18 @@
       "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
       "latitude": 38.8334,
       "longitude": -77.2365
+   },
+   "us-east5":{
+      "name":"Columbus, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+      "latitude": 39.9612,
+      "longitude": -82.9988
+   },
+   "us-south1":{
+      "name":"Dallas, USA",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+      "latitude": 32.7767,
+      "longitude": -96.7970
    },
    "us-west1":{
       "name":"Oregon, USA",
