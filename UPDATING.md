@@ -1,9 +1,11 @@
 # Updating data 
 
-## Adding a new region
+## Adding new regions
 
 1. Open the file [`data/regions.json`](data/regions.json)
-2. Add the new region
+2. Add the new regions:
+ * Use Google Search to find the coordinates
+ * Look for the flag on wikipedia, copy the URL of the SVG image, it must star with `https://upload.wikimedia.org/` and end with `.svg`
 
 ## Region carbon footprint 
 
