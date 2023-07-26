@@ -25,8 +25,16 @@ To update to the latest pricing data:
 1. Open the Cloud Console
 2. Click Billing > Pricing
 3. Select "View all SKUs"
-4. Filter the table with "SKU Description:E2 Instance Core"
-5. Manually copy all prices into [`data/prices.json`](data/prices.json)  
+4. Filter the table with: 
+  * `Service ID:6F81-5844-456A` 
+  * `Product taxonomy:GCP > Compute > GCE > VMs On Demand > Cores: Per Core`
+  * `SKU Description:E2 Instance Core`
+5. Display the column `Geo taxonomy regions`.
+6. Select the table using your mouse, copy the selection. (Do not try to use the Download icon, it doesn't download the currently displayed data)
+7. Create a new Google Sheet, and paste the selection.
+6. Manually copy all prices into [`data/prices.json`](data/prices.json)  
+
+*TODO: instead of manually copying prices, export the sheet as CSV and parse the CSV ([issue](https://github.com/GoogleCloudPlatform/region-picker/issues/17))*
 
 Alternatively, get the Google Compute Engine E2 Core prices [from the documentation](https://cloud.google.com/compute/all-pricing#e2_machine-types).
 

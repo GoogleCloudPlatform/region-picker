@@ -125,6 +125,18 @@
       "latitude": 48.8566,
       "longitude": 2.3522
    },
+   "europe-west12":{
+      "name":"Turin, Italy",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+      "latitude": 45.0703,
+      "longitude": 7.6869
+   },
+   "me-west1":{
+      "name":"Tel Aviv, Isral",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg",
+      "latitude": 32.0853,
+      "longitude": 34.7818
+   },
    "northamerica-northeast1":{
       "name":"Montréal, Canada",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
