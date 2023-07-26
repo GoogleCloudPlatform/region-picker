@@ -55,7 +55,7 @@ function normalizeAttributes(map, attribute) {
         }
     }
     for (const region in map) {
-        if (map[region][attribute]) {
+        if (map[region][attribute] !== undefined) {
             map[region][attribute + normalizedSuffix] = (map[region][attribute] - min) / (max - min)
         }
     }
