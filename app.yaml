@@ -1,4 +1,4 @@
-runtime: nodejs14
+runtime: nodejs20
 handlers:
 - url: /region-picker
   static_files: index.html
