@@ -25,19 +25,6 @@ product2 | true    | false   | ...
 ...
 */
 
-/* 
-	data object is:
-	{
-		"product1": {
-			"region1": true,
-			"region2": false,
-			...
-		},
-		...
-	}
-*/
-const data = [];
-
 function extractLocations(headerRow) {
 	const headerCells = headerRow.querySelectorAll("th");
 	const locations = [];
@@ -89,7 +76,7 @@ function extractProductAvailability(row) {
 	return {product, availability};
 }
 
-function extractDataForContinent(continentDOM) {
+function extractDataForContinent(continentDOM, data) {
 	const rows = continentDOM.querySelectorAll("tr");
 
 	const locations = extractLocations(rows[0]);
@@ -108,18 +95,52 @@ function extractDataForContinent(continentDOM) {
 	}
 }
 
+/* 
+	return:
+	{
+		"product1": {
+			"region1": true,
+			"region2": false,
+			...
+		},
+		...
+	}
+*/
 
 function parseAboutLocations(document) {
+	const data = {};
 
 	const continents = document.querySelectorAll(".cloud-table");
 
 	// The last tab is "multi region"
 	for (let c = 0; c < continents.length - 1; c++) {
-		extractDataForContinent(continents[c]);
+		extractDataForContinent(continents[c], data);
 	}
 
+	return data;
 }
-parseAboutLocations(document);
 
-// Normalize the data
-console.log(data);
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function getLocationsJSONFile() {
+	const parsed = parseAboutLocations(document);
+	console.log(parsed);
+	const json = JSON.stringify(parsed, null, 2);
+	//console.log(json);
+
+	download("products.json", json);
+}
+
+getLocationsJSONFile();
+

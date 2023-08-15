@@ -41,3 +41,11 @@ Alternatively, get the Google Compute Engine E2 Core prices [from the documentat
 ## Countries
 
 The list of countries and their coordinates is taken from [this page](https://developers.google.com/public-data/docs/canonical/countries_csv), converted to JSON using [this online tool](https://www.convertcsv.com/csv-to-json.htm).
+
+## Products
+
+* Open https://cloud.google.com/about/locations
+* Open the browser console
+* Copy the code from [`parsers/locations/about-locations-parser.js`](parsers/locations/about-locations-parser.js) 
+* Hit Enter
+* Copy the output and paste it into [`data/products.json`](data/products.json)
