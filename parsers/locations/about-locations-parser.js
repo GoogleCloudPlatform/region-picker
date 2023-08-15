@@ -84,7 +84,10 @@ function extractDataForContinent(continentDOM, data) {
 	for (let i = 1; i < rows.length; i++) {
 		const productAvailability = extractProductAvailability(rows[i]);
 		if(productAvailability) {
-			const {product, availability} = productAvailability;
+			let {product, availability} = productAvailability;
+			if (product === "Firestore" || product === "Memorystore" || product === "Filestore") {
+				product = "Cloud " + product;
+			}
 			if(!data[product]) {
 				data[product] = {};
 			}
