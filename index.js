@@ -198,8 +198,12 @@ function grayOutWhenZero(event) {
 }
 
 async function recommendRegion() {
-  if(!regions && !fetching) {
-    await fetchData();
+  if(!regions) {
+    if(!fetching) {
+      await fetchData();
+    } else {
+      return;
+    }
   }
   
   let params = {
