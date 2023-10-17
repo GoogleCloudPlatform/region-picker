@@ -14,7 +14,7 @@ The carbon data comes from the officially published GCP carbon data [on GitHub](
 To update to the latest yearly data:
 
 1. Make sure the new yearly data is present in a new `.csv` file [in the official repo](https://github.com/GoogleCloudPlatform/region-carbon-info/tree/main/data/yearly)
-2. Update [`index.json`](index.js#L56) to point at this new CSV file.
+2. Update [`index.js`](index.js#L56) to point at this new CSV file.
 
 ## Prices
 
