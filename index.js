@@ -37,12 +37,38 @@ async function initializeCountrySelect() {
 
   const locationsSelect = document.getElementById('locations');
   for (const country of countries) {
-    const option = document.createElement("option");
-    // Stoe the stringified object as option value.
+    // Store the stringified object as option value.
     // Adding the actual values as data- attribute mighe be nicer.
-    option.value = JSON.stringify(country);
-    option.text = country.name;
-    locationsSelect.add(option);
+    locationsSelect.add(new Option(country.name, JSON.stringify(country)));
+  }
+}
+
+/**
+ * Should this product be selected by default?
+ * @param {String} product the proeuct to check
+ * @returns {boolean} true if product should be selected
+ */
+function defaultSelectedProduct(product) {
+  let defaultProducts = [
+    "Compute Engine",
+    "Cloud Storage",
+    "Google Kubernetes Engine",
+    "Cloud Run"
+  ];
+  return defaultProducts.includes(product);
+}
+
+async function initializeProductSelect() {
+  let products;
+
+  await fetch("data/products.json")
+  .then(data => data.json())
+  .then(json => products = json);
+
+  const productsSelect = document.getElementById('products');
+
+  for (const product in products) {
+    productsSelect.add(new Option(product, JSON.stringify(products[product]), defaultSelectedProduct(product), defaultSelectedProduct(product)));
   }
 }
 
@@ -106,6 +132,8 @@ function bindListeners() {
   }
 
   document.getElementById('locations').addEventListener('change', recommendRegion);
+
+  document.getElementById('products').addEventListener('change', recommendRegion);
 
   document.getElementById('share').addEventListener('click', () => {
     navigator.share({
@@ -231,6 +259,34 @@ async function recommendRegion() {
       }
     }
   }
+
+  // Array of allowed regions, based on selected products
+  params.allowedRegions = new Set();
+  // get currently selected products
+  const productSelect = document.getElementById('products');
+  if(productSelect.selectedIndex === -1) {
+    console.warn("No selected product");
+  } else {
+
+    // Start with all regions in which the first selected product is available
+    const firstSelectedOption = productSelect.selectedOptions[0];
+    const firstSelectionRegionsMap = JSON.parse(firstSelectedOption.value);
+    for (const region of Object.keys(firstSelectionRegionsMap)) {
+      if(firstSelectionRegionsMap[region]) {
+        params.allowedRegions.add(region);
+      }
+    }
+
+    // For all other selected products, remove from the previous set any region where it's not available
+    for (let o = 1; o < productSelect.selectedOptions.length; o++) {
+      const regionsMap = JSON.parse(productSelect.selectedOptions[o].value);
+      for (const region of Object.keys(regionsMap)) {
+        if(!regionsMap[region]) {
+          params.allowedRegions.delete(region);
+        }
+      }
+    }
+  }
   
   // TODO: Should we always store params in URL? or only when user hits 'Share'?
   // In any case, we need to handle the user coordinates in a special way:
@@ -251,6 +307,7 @@ if(window.location.hash) {
   let urlParams = JSON.parse(decodeURIComponent(window.location.hash.slice(1)));
   console.log('TODO: load URL params', urlParams);
 }
-initializeCountrySelect();
+await initializeCountrySelect();
+await initializeProductSelect();
 bindListeners();
 recommendRegion();

@@ -103,7 +103,7 @@ html {
   box-sizing: inherit;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-style: normal;
   font-weight: normal;
 }
@@ -114,6 +114,10 @@ h1{
 h2{
   font-size: 1.25em;
 }
+h3{
+  font-size: 1em;
+}
+
 
 h1 .accent, h2 {
   color: var(--blue-500)
@@ -278,6 +282,10 @@ details > summary {
 
 .weight-group.latency {
     background-image: url(images/icons/timer-24px.svg);
+}
+
+.weight-group.products {
+    background-image: url(images/icons/checkbox-24px.svg);
 }
 
 #results {
@@ -460,13 +468,27 @@ details > summary {
         <span class="weight-info">Not important</span>
         <input type="range" id="latency" name="latency" min="0" max="10" class="weight">
         <span class="weight-info">Important</span>
+
+        <div id="locations-group">
+          <label for="locations">Where is your traffic coming from?</label>
+          <select multiple id="locations" name="locations">
+            <option value="--current-location--" selected>Your current location</option>
+          </select>
+        </div>
+
       </div>
 
-      <div id="locations-group">
-        <label for="locations"><h2>Where is your traffic coming from?</h2></label>
-        <select multiple id="locations" name="locations">
-          <option value="--current-location--" selected>Your current location</option>
-        </select>
+      <div class="weight-group products">
+        <details>
+          <summary><label for="products" class="weight-title">Product availability</label> <img src="images/icons/help_outline_black_24dp.svg" class="help" alt="A question mark" width="16" height="16"/></summary>
+          <p class="explanation">
+            Only regions where selected products are available will be suggested.
+            This list doesn't include <a href="https://cloud.google.com/about/locations#global-products">global products</a>.
+            Product availability is quickly changing, this tool is likely to not reflect the latest availability data.
+            For an official and up to date table of product regional availability, please refer to <a href="https://cloud.google.com/about/locations#regions">the official Google Cloud website</a>.
+          </p>
+        </details>
+        <select multiple id="products" name="products"></select>
       </div>
 
     </form>

@@ -61,6 +61,18 @@ function normalizeAttributes(map, attribute) {
     }
 }
 
+/**
+ * Filter out any region from the results that isn't in the list of allowed regions
+ * @param {Set} allowedRegions set of allowed regions
+ * @param {Array} sortedResults array of results, sorted by score
+ */
+function keepOnlyAllowedRegionsFromResults(allowedRegions, sortedResults) {
+    return sortedResults.filter(result => allowedRegions.has(result.region));
+}
+
+
+
+
 function rankRegions(regions, inputs) {
     let results = [];
     let latencyData;
@@ -110,14 +122,19 @@ function rankRegions(regions, inputs) {
         }
     }
 
-    let resultSorted = results.sort(function (a, b) {
+    const resultSorted = results.sort(function (a, b) {
         return b.score - a.score;
     });
 
-    return resultSorted;
+    const resultFilteredSorted = keepOnlyAllowedRegionsFromResults(inputs.allowedRegions, resultSorted);
+
+    return resultFilteredSorted;
 }
 
 /*
+@param regions: {
+    region: {}
+}
 @param inputs: {
     weights: {
         latency: 0.5,
@@ -126,7 +143,8 @@ function rankRegions(regions, inputs) {
     },
     locations: [
         {latitude, longitude}
-    ]
+    ],
+    allowedRegions: ['us-central1', 'us-east1']
 }
 @return [{
         region: 'us-central1',
