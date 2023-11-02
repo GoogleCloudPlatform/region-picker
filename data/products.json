@@ -37,7 +37,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "App Engine": {
     "us-west1": true,
@@ -77,7 +78,8 @@
     "australia-southeast2": false,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Google Kubernetes Engine": {
     "us-west1": true,
@@ -117,7 +119,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud Functions": {
     "us-west1": true,
@@ -157,7 +160,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud Run": {
     "us-west1": true,
@@ -197,7 +201,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Google Cloud VMware Engine": {
     "us-west1": false,
@@ -236,8 +241,9 @@
     "australia-southeast1": true,
     "australia-southeast2": false,
     "asia-northeast3": false,
-    "me-west1": false,
-    "me-central1": false
+    "me-west1": true,
+    "me-central1": false,
+    "me-central2": false
   },
   "Bare Metal Solution": {
     "us-west1": false,
@@ -277,7 +283,8 @@
     "australia-southeast2": false,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Batch": {
     "us-west1": true,
@@ -287,12 +294,12 @@
     "us-central1": true,
     "us-east1": true,
     "us-east4": true,
-    "us-east5": false,
+    "us-east5": true,
     "us-south1": true,
     "northamerica-northeast1": true,
-    "northamerica-northeast2": false,
+    "northamerica-northeast2": true,
     "southamerica-west1": true,
-    "southamerica-east1": false,
+    "southamerica-east1": true,
     "europe-west2": true,
     "europe-west1": true,
     "europe-west4": true,
@@ -300,11 +307,11 @@
     "europe-west3": true,
     "europe-north1": true,
     "europe-central2": true,
-    "europe-west8": false,
+    "europe-west8": true,
     "europe-southwest1": true,
     "europe-west9": true,
-    "europe-west12": false,
-    "europe-west10": false,
+    "europe-west12": true,
+    "europe-west10": true,
     "asia-south1": true,
     "asia-south2": true,
     "asia-southeast1": true,
@@ -314,10 +321,11 @@
     "asia-northeast1": true,
     "asia-northeast2": true,
     "australia-southeast1": true,
-    "australia-southeast2": false,
+    "australia-southeast2": true,
     "asia-northeast3": true,
-    "me-west1": false,
-    "me-central1": true
+    "me-west1": true,
+    "me-central1": true,
+    "me-central2": false
   },
   "Anthos Service Mesh": {
     "us-west1": true,
@@ -395,7 +403,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud Storage for Firebase": {
     "us-west1": true,
@@ -435,7 +444,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud Bigtable": {
     "us-west1": true,
@@ -475,7 +485,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud Spanner": {
     "us-west1": true,
@@ -515,7 +526,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud SQL": {
     "us-west1": true,
@@ -555,7 +567,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud Firestore": {
     "us-west1": true,
@@ -580,7 +593,7 @@
     "europe-central2": true,
     "europe-west8": false,
     "europe-southwest1": false,
-    "europe-west9": false,
+    "europe-west9": true,
     "europe-west12": false,
     "europe-west10": false,
     "asia-south1": true,
@@ -594,8 +607,9 @@
     "australia-southeast1": true,
     "australia-southeast2": true,
     "asia-northeast3": true,
-    "me-west1": false,
-    "me-central1": false
+    "me-west1": true,
+    "me-central1": true,
+    "me-central2": false
   },
   "Memorystore": {
     "us-west1": true,
@@ -635,7 +649,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Filestore": {
     "us-west1": true,
@@ -675,7 +690,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Persistent Disk": {
     "us-west1": true,
@@ -715,7 +731,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Storage Transfer Service": {
     "us-west1": true,
@@ -755,7 +772,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": false
   },
   "Cloud Datastore": {
     "us-west1": true,
@@ -871,7 +889,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "NetApp Volumes": {
     "us-west1": false,
@@ -911,7 +930,8 @@
     "australia-southeast2": false,
     "asia-northeast3": false,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "BigQuery": {
     "us-west1": true,
@@ -951,7 +971,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": false
   },
   "Cloud Composer": {
     "us-west1": true,
@@ -974,11 +995,11 @@
     "europe-west3": true,
     "europe-north1": true,
     "europe-central2": true,
-    "europe-west8": false,
+    "europe-west8": true,
     "europe-southwest1": true,
     "europe-west9": true,
-    "europe-west12": false,
-    "europe-west10": false,
+    "europe-west12": true,
+    "europe-west10": true,
     "asia-south1": true,
     "asia-south2": true,
     "asia-southeast1": true,
@@ -991,7 +1012,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": false
+    "me-central1": true,
+    "me-central2": false
   },
   "Cloud Dataflow": {
     "us-west1": true,
@@ -1031,7 +1053,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud Dataproc": {
     "us-west1": true,
@@ -1071,7 +1094,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Dataplex": {
     "us-west1": true,
@@ -1084,7 +1108,7 @@
     "us-east5": true,
     "us-south1": false,
     "northamerica-northeast1": true,
-    "northamerica-northeast2": false,
+    "northamerica-northeast2": true,
     "southamerica-west1": true,
     "southamerica-east1": true,
     "europe-west2": true,
@@ -1094,13 +1118,13 @@
     "europe-west3": true,
     "europe-north1": true,
     "europe-central2": true,
-    "europe-west8": false,
+    "europe-west8": true,
     "europe-southwest1": true,
     "europe-west9": true,
     "europe-west12": false,
     "europe-west10": false,
     "asia-south1": true,
-    "asia-south2": false,
+    "asia-south2": true,
     "asia-southeast1": true,
     "asia-southeast2": true,
     "asia-east2": true,
@@ -1108,10 +1132,11 @@
     "asia-northeast1": true,
     "asia-northeast2": false,
     "australia-southeast1": true,
-    "australia-southeast2": false,
+    "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud Datastream": {
     "us-west1": true,
@@ -1151,7 +1176,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud Data Catalog": {
     "us-west1": true,
@@ -1191,7 +1217,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud Data Fusion": {
     "us-west1": true,
@@ -1231,7 +1258,8 @@
     "australia-southeast2": false,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud Life Sciences": {
     "us-west1": false,
@@ -1286,7 +1314,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Dataform": {
     "us-west1": true,
@@ -1364,7 +1393,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud Build": {
     "us-west1": true,
@@ -1404,7 +1434,49 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
+  },
+  "Cloud Deploy": {
+    "us-west1": true,
+    "us-west2": true,
+    "us-west3": true,
+    "us-west4": true,
+    "us-central1": true,
+    "us-east1": true,
+    "us-east4": true,
+    "us-east5": false,
+    "us-south1": false,
+    "northamerica-northeast1": true,
+    "northamerica-northeast2": true,
+    "southamerica-west1": true,
+    "southamerica-east1": true,
+    "europe-west2": true,
+    "europe-west1": true,
+    "europe-west4": true,
+    "europe-west6": true,
+    "europe-west3": true,
+    "europe-north1": true,
+    "europe-central2": true,
+    "europe-west8": false,
+    "europe-southwest1": false,
+    "europe-west9": false,
+    "europe-west12": false,
+    "europe-west10": false,
+    "asia-south1": true,
+    "asia-south2": true,
+    "asia-southeast1": true,
+    "asia-southeast2": true,
+    "asia-east2": true,
+    "asia-east1": true,
+    "asia-northeast1": true,
+    "asia-northeast2": true,
+    "australia-southeast1": true,
+    "australia-southeast2": true,
+    "asia-northeast3": true,
+    "me-west1": false,
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud Workstations": {
     "us-west1": true,
@@ -1416,7 +1488,7 @@
     "us-east4": true,
     "us-east5": false,
     "us-south1": false,
-    "northamerica-northeast1": false,
+    "northamerica-northeast1": true,
     "northamerica-northeast2": false,
     "southamerica-west1": true,
     "southamerica-east1": false,
@@ -1444,7 +1516,8 @@
     "australia-southeast2": false,
     "asia-northeast3": false,
     "me-west1": true,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Container Registry": {
     "us-west1": false,
@@ -1484,47 +1557,46 @@
     "australia-southeast2": false,
     "asia-northeast3": false,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
-  "Google Cloud Deploy": {
-    "us-west1": true,
-    "us-west2": true,
-    "us-west3": true,
-    "us-west4": true,
+  "Infrastructure Manager": {
+    "us-west1": false,
+    "us-west2": false,
+    "us-west3": false,
+    "us-west4": false,
     "us-central1": true,
-    "us-east1": true,
-    "us-east4": true,
+    "us-east1": false,
+    "us-east4": false,
     "us-east5": false,
     "us-south1": false,
-    "northamerica-northeast1": true,
-    "northamerica-northeast2": true,
-    "southamerica-west1": true,
-    "southamerica-east1": true,
-    "europe-west2": true,
+    "northamerica-northeast1": false,
+    "northamerica-northeast2": false,
+    "southamerica-west1": false,
+    "southamerica-east1": false,
+    "europe-west2": false,
     "europe-west1": true,
-    "europe-west4": true,
-    "europe-west6": true,
-    "europe-west3": true,
-    "europe-north1": true,
-    "europe-central2": true,
+    "europe-west4": false,
+    "europe-west6": false,
+    "europe-west3": false,
+    "europe-north1": false,
+    "europe-central2": false,
     "europe-west8": false,
     "europe-southwest1": false,
     "europe-west9": false,
     "europe-west12": false,
     "europe-west10": false,
-    "asia-south1": true,
-    "asia-south2": true,
-    "asia-southeast1": true,
-    "asia-southeast2": true,
-    "asia-east2": true,
+    "asia-south1": false,
+    "asia-south2": false,
+    "asia-southeast1": false,
+    "asia-southeast2": false,
+    "asia-east2": false,
     "asia-east1": true,
-    "asia-northeast1": true,
-    "asia-northeast2": true,
-    "australia-southeast1": true,
-    "australia-southeast2": true,
-    "asia-northeast3": true,
-    "me-west1": false,
-    "me-central1": false
+    "asia-northeast1": false,
+    "asia-northeast2": false,
+    "australia-southeast1": false,
+    "australia-southeast2": false,
+    "asia-northeast3": false
   },
   "Cloud Key Management Service": {
     "us-west1": true,
@@ -1564,9 +1636,10 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
-  "Cloud Data Loss Prevention": {
+  "Sensitive Data Protection": {
     "us-west1": true,
     "us-west2": true,
     "us-west3": true,
@@ -1588,10 +1661,10 @@
     "europe-north1": true,
     "europe-central2": true,
     "europe-west8": true,
-    "europe-southwest1": false,
+    "europe-southwest1": true,
     "europe-west9": true,
-    "europe-west12": false,
-    "europe-west10": false,
+    "europe-west12": true,
+    "europe-west10": true,
     "asia-south1": true,
     "asia-south2": true,
     "asia-southeast1": true,
@@ -1603,8 +1676,9 @@
     "australia-southeast1": true,
     "australia-southeast2": true,
     "asia-northeast3": true,
-    "me-west1": false,
-    "me-central1": false
+    "me-west1": true,
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud EKM": {
     "us-west1": true,
@@ -1644,7 +1718,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Cloud HSM": {
     "us-west1": true,
@@ -1684,7 +1759,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Secret Manager": {
     "us-west1": true,
@@ -1724,7 +1800,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
   "Access Context Manager": {
     "us-west1": true,
@@ -1840,7 +1917,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": false
   },
   "Cloud Identity-Aware Proxy": {
     "us-west1": true,
@@ -1956,7 +2034,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": false
   },
   "Cloud Healthcare API": {
     "us-west1": true,
@@ -1987,16 +2066,17 @@
     "asia-south1": true,
     "asia-south2": false,
     "asia-southeast1": true,
-    "asia-southeast2": false,
+    "asia-southeast2": true,
     "asia-east2": true,
-    "asia-east1": false,
+    "asia-east1": true,
     "asia-northeast1": true,
-    "asia-northeast2": false,
+    "asia-northeast2": true,
     "australia-southeast1": true,
     "australia-southeast2": false,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Apigee": {
     "us-west1": true,
@@ -2036,7 +2116,8 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": false
   },
   "API Gateway": {
     "us-west1": false,
@@ -2076,7 +2157,90 @@
     "australia-southeast2": false,
     "asia-northeast3": false,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
+  },
+  "Application Integration": {
+    "us-west1": true,
+    "us-west2": true,
+    "us-west3": false,
+    "us-west4": false,
+    "us-central1": true,
+    "us-east1": true,
+    "us-east4": true,
+    "us-east5": false,
+    "us-south1": false,
+    "northamerica-northeast1": true,
+    "northamerica-northeast2": false,
+    "southamerica-west1": false,
+    "southamerica-east1": true,
+    "europe-west2": true,
+    "europe-west1": true,
+    "europe-west4": true,
+    "europe-west6": true,
+    "europe-west3": true,
+    "europe-north1": true,
+    "europe-central2": false,
+    "europe-west8": false,
+    "europe-southwest1": true,
+    "europe-west9": true,
+    "europe-west12": false,
+    "europe-west10": false,
+    "asia-south1": true,
+    "asia-south2": false,
+    "asia-southeast1": true,
+    "asia-southeast2": false,
+    "asia-east2": false,
+    "asia-east1": true,
+    "asia-northeast1": true,
+    "asia-northeast2": false,
+    "australia-southeast1": true,
+    "australia-southeast2": true,
+    "asia-northeast3": false,
+    "me-west1": true,
+    "me-central1": true,
+    "me-central2": false
+  },
+  "AppSheet": {
+    "us-west1": true,
+    "us-west2": false,
+    "us-west3": true,
+    "us-west4": false,
+    "us-central1": true,
+    "us-east1": false,
+    "us-east4": true,
+    "us-east5": true,
+    "us-south1": false,
+    "northamerica-northeast1": false,
+    "northamerica-northeast2": false,
+    "southamerica-west1": false,
+    "southamerica-east1": false,
+    "europe-west2": false,
+    "europe-west1": false,
+    "europe-west4": true,
+    "europe-west6": false,
+    "europe-west3": false,
+    "europe-north1": false,
+    "europe-central2": false,
+    "europe-west8": false,
+    "europe-southwest1": false,
+    "europe-west9": false,
+    "europe-west12": false,
+    "europe-west10": false,
+    "asia-south1": false,
+    "asia-south2": false,
+    "asia-southeast1": false,
+    "asia-southeast2": false,
+    "asia-east2": false,
+    "asia-east1": false,
+    "asia-northeast1": false,
+    "asia-northeast2": false,
+    "australia-southeast1": false,
+    "australia-southeast2": false,
+    "asia-northeast3": false,
+    "me-west1": false,
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud Scheduler": {
     "us-west1": true,
@@ -2116,7 +2280,8 @@
     "australia-southeast2": false,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud Tasks": {
     "us-west1": true,
@@ -2156,85 +2321,8 @@
     "australia-southeast2": false,
     "asia-northeast3": true,
     "me-west1": false,
-    "me-central1": false
-  },
-  "Workflows": {
-    "us-west1": true,
-    "us-west2": true,
-    "us-west3": true,
-    "us-west4": true,
-    "us-central1": true,
-    "us-east1": true,
-    "us-east4": true,
-    "us-east5": true,
-    "us-south1": true,
-    "northamerica-northeast1": true,
-    "northamerica-northeast2": true,
-    "southamerica-west1": false,
-    "southamerica-east1": true,
-    "europe-west2": true,
-    "europe-west1": true,
-    "europe-west4": true,
-    "europe-west6": true,
-    "europe-west3": true,
-    "europe-north1": true,
-    "europe-central2": true,
-    "europe-west8": true,
-    "europe-southwest1": true,
-    "europe-west9": true,
-    "europe-west12": false,
-    "europe-west10": false,
-    "asia-south1": true,
-    "asia-south2": true,
-    "asia-southeast1": true,
-    "asia-southeast2": false,
-    "asia-east2": true,
-    "asia-east1": true,
-    "asia-northeast1": true,
-    "asia-northeast2": true,
-    "australia-southeast1": true,
-    "australia-southeast2": true,
-    "asia-northeast3": true,
-    "me-west1": true,
-    "me-central1": false
-  },
-  "AppSheet": {
-    "us-west1": true,
-    "us-west2": false,
-    "us-west3": true,
-    "us-west4": false,
-    "us-central1": true,
-    "us-east1": false,
-    "us-east4": true,
-    "us-east5": true,
-    "us-south1": false,
-    "northamerica-northeast1": false,
-    "northamerica-northeast2": false,
-    "southamerica-west1": false,
-    "southamerica-east1": false,
-    "europe-west2": false,
-    "europe-west1": false,
-    "europe-west4": true,
-    "europe-west6": false,
-    "europe-west3": false,
-    "europe-north1": false,
-    "europe-central2": false,
-    "europe-west8": false,
-    "europe-southwest1": false,
-    "europe-west9": false,
-    "europe-west12": false,
-    "europe-west10": false,
-    "asia-south1": false,
-    "asia-south2": false,
-    "asia-southeast1": false,
-    "asia-southeast2": false,
-    "asia-east2": false,
-    "asia-east1": false,
-    "asia-northeast1": false,
-    "asia-northeast2": false,
-    "australia-southeast1": false,
-    "australia-southeast2": false,
-    "asia-northeast3": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Eventarc": {
     "us-west1": true,
@@ -2272,7 +2360,51 @@
     "asia-northeast2": true,
     "australia-southeast1": true,
     "australia-southeast2": true,
-    "asia-northeast3": true
+    "asia-northeast3": true,
+    "me-west1": true,
+    "me-central1": true,
+    "me-central2": false
+  },
+  "Workflows": {
+    "us-west1": true,
+    "us-west2": true,
+    "us-west3": true,
+    "us-west4": true,
+    "us-central1": true,
+    "us-east1": true,
+    "us-east4": true,
+    "us-east5": true,
+    "us-south1": true,
+    "northamerica-northeast1": true,
+    "northamerica-northeast2": true,
+    "southamerica-west1": true,
+    "southamerica-east1": true,
+    "europe-west2": true,
+    "europe-west1": true,
+    "europe-west4": true,
+    "europe-west6": true,
+    "europe-west3": true,
+    "europe-north1": true,
+    "europe-central2": true,
+    "europe-west8": true,
+    "europe-southwest1": true,
+    "europe-west9": true,
+    "europe-west12": true,
+    "europe-west10": true,
+    "asia-south1": true,
+    "asia-south2": true,
+    "asia-southeast1": true,
+    "asia-southeast2": true,
+    "asia-east2": true,
+    "asia-east1": true,
+    "asia-northeast1": true,
+    "asia-northeast2": true,
+    "australia-southeast1": true,
+    "australia-southeast2": true,
+    "asia-northeast3": true,
+    "me-west1": true,
+    "me-central1": false,
+    "me-central2": true
   },
   "Live Stream API": {
     "us-west1": true,
@@ -2350,7 +2482,8 @@
     "australia-southeast2": false,
     "asia-northeast3": false,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Video Stitcher API": {
     "us-west1": true,
@@ -2428,9 +2561,10 @@
     "australia-southeast2": true,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": true
   },
-  "AML AI": {
+  "Anti Money Laundering AI": {
     "us-west1": false,
     "us-west2": false,
     "us-west3": false,
@@ -2495,7 +2629,8 @@
     "australia-southeast2": false,
     "asia-northeast3": false,
     "me-west1": false,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Cloud IoT": {
     "us-west1": false,
@@ -2573,7 +2708,8 @@
     "australia-southeast2": false,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": true
+    "me-central1": true,
+    "me-central2": false
   },
   "Looker (Google Cloud core)": {
     "us-west1": true,
@@ -2582,18 +2718,18 @@
     "us-west4": false,
     "us-central1": true,
     "us-east1": true,
-    "us-east4": false,
+    "us-east4": true,
     "us-east5": false,
     "us-south1": false,
     "northamerica-northeast1": false,
     "northamerica-northeast2": false,
     "southamerica-west1": false,
     "southamerica-east1": false,
-    "europe-west2": false,
+    "europe-west2": true,
     "europe-west1": true,
     "europe-west4": true,
     "europe-west6": false,
-    "europe-west3": false,
+    "europe-west3": true,
     "europe-north1": true,
     "europe-central2": false,
     "europe-west8": false,
@@ -2603,15 +2739,18 @@
     "europe-west10": false,
     "asia-south1": false,
     "asia-south2": false,
-    "asia-southeast1": false,
+    "asia-southeast1": true,
     "asia-southeast2": false,
     "asia-east2": false,
     "asia-east1": true,
     "asia-northeast1": false,
     "asia-northeast2": false,
-    "australia-southeast1": false,
+    "australia-southeast1": true,
     "australia-southeast2": false,
-    "asia-northeast3": false
+    "asia-northeast3": false,
+    "me-west1": true,
+    "me-central1": false,
+    "me-central2": false
   },
   "Pub/Sub Lite": {
     "us-west1": true,
@@ -3031,7 +3170,8 @@
     "australia-southeast2": false,
     "asia-northeast3": true,
     "me-west1": true,
-    "me-central1": false
+    "me-central1": false,
+    "me-central2": false
   },
   "Video Intelligence API": {
     "us-west1": true,
