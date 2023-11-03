@@ -19,6 +19,7 @@ import { regionOptimizer } from './region-optimizer.js';
 const regionsToDisplay = 10;
 
 let inputs = document.querySelectorAll('.weight');
+let initialized = false;
 let userCoords;
 let regions;
 let fetching;
@@ -305,8 +306,18 @@ async function recommendRegion() {
   regionOptimizer(regions, params).then(printResults);
 };
 
-navigator.geolocation.getCurrentPosition((position) => {
+async function initialize() {
+  if(!initialized) {
+    await initializeCountrySelect();
+    await initializeProductSelect();
+    bindListeners();    
+    initialized = true;
+  }
+}
+
+navigator.geolocation.getCurrentPosition(async (position) => {
   userCoords = position.coords;
+  await initialize();
   recommendRegion();
 });
 
@@ -315,7 +326,6 @@ if(window.location.hash) {
   let urlParams = JSON.parse(decodeURIComponent(window.location.hash.slice(1)));
   console.log('TODO: load URL params', urlParams);
 }
-await initializeCountrySelect();
-await initializeProductSelect();
-bindListeners();
+
+await initialize();
 recommendRegion();
