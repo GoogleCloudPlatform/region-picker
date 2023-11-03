@@ -18,7 +18,7 @@ import { regionOptimizer } from './region-optimizer.js';
 
 const regionsToDisplay = 10;
 
-let inputs;
+let inputs = document.querySelectorAll('.weight');
 let userCoords;
 let regions;
 let fetching;
@@ -125,7 +125,6 @@ async function fetchData() {
 }
 
 function bindListeners() {
-  inputs = document.querySelectorAll('.weight');
   for (const input of inputs) {
     input.addEventListener('input', recommendRegion);
     input.addEventListener('input', grayOutWhenZero);
@@ -168,10 +167,7 @@ function regionToDollars(region) {
   return Math.floor(region.gce_normalized * 2.9 + 1)
 }
 
-function printResults(results) {
-  console.log("Results:", results);
-  const list = document.getElementById('results');
-
+function updateList(list, results) {
   // clean the list
   while (list.firstChild) {
     list.removeChild(list.firstChild);
@@ -183,6 +179,17 @@ function printResults(results) {
   }
 }
 
+function printResults(results) {
+  console.log("Results:", results);
+  const list = document.getElementById('results');
+
+  if(!document.startViewTransition) {
+    updateList(list, results);
+  } else {
+    document.startViewTransition(() => updateList(list, results));
+  }
+}
+
 /**
  * Append the given result to the list in the DOM 
  * @param {*} list DOM <li>
@@ -190,6 +197,7 @@ function printResults(results) {
  */
 function printResultInList(list, result) {
   let row = document.getElementById('result-row').content.cloneNode(true);
+  row.querySelector('li').style.viewTransitionName = result.region;
   row.querySelector('.region').textContent = result.region;
   row.querySelector('.name').textContent = result.properties.name;
   row.querySelector('.price').textContent = result.properties.gce;
