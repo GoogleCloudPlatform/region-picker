@@ -14,17 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-
-
-/*
-Final output will be a csv like this:
-Product	 | region1 | region2 | ...
-----------------------------------
-product1 | true    | false   | ...
-product2 | true    | false   | ...
-...
-*/
-
 function extractLocations(headerRow) {
 	const headerCells = headerRow.querySelectorAll("th");
 	const locations = [];
