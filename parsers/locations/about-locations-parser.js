@@ -36,7 +36,7 @@ function extractLocations(headerRow) {
 function extractProductAvailability(row) {
 
 	const tHeader = row.querySelector("th");
-	if (!tHeader) {s
+	if (!tHeader) {
 		console.error('Cannot extract product name');
 		return;
 	}
