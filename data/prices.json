@@ -22,6 +22,8 @@
     "europe-west9":            {"gce": 0.025302},
     "europe-west12":           {"gce": 0.02813695},
     "me-west1":                {"gce": 0.02399275},
+    "me-central1":             {"gce": 0.02650108},
+    "me-central2":             {"gce": 0.03489854},
     "northamerica-northeast1": {"gce": 0.024013},
     "northamerica-northeast2": {"gce": 0.02401338},
     "southamerica-east1":      {"gce": 0.034624},
