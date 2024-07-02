@@ -141,7 +141,8 @@
       "name":"Doha, Qatar",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg",
       "latitude": 25.2854,
-      "longitude": 51.5310
+      "longitude": 51.5310,
+      "gCO2_kWh": 471
    },
    "me-central2":{
       "name":"Dammam, Kingdom of Saudi Arabia",
