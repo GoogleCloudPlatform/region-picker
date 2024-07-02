@@ -180,6 +180,31 @@ function updateList(list, results) {
   }
 }
 
+function updateMissingDataWarning(missingData) {
+
+  const missingDataWarning = document.getElementById('missing-data-warning');
+  if(missingData.length == 0) {
+    missingDataWarning.hidden = true;
+  } else {
+    missingDataWarning.hidden = false;
+    const missingDataList = document.getElementById('missing-data-regions');
+    updateMissingDataList(missingDataList, missingData);
+  }
+}
+
+function updateMissingDataList(missingDataList, missingData) {
+  // clean the list
+  while (missingDataList.firstChild) {
+    missingDataList.removeChild(missingDataList.firstChild);
+  }
+
+  for (let i = 0; i < Math.min(regionsToDisplay, missingData.length); i++) {
+    const region = document.createElement('span');
+    region.textContent = missingData[i].region; 
+    missingDataList.appendChild(region);
+  }
+}
+
 function printResults(results) {
   console.log("Results:", results);
   const list = document.getElementById('results');
@@ -189,6 +214,9 @@ function printResults(results) {
   } else {
     document.startViewTransition(() => updateList(list, results.sorted));
   }
+
+  updateMissingDataWarning(results.missingData);
+
 }
 
 /**

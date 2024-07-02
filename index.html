@@ -181,6 +181,8 @@ footer {
 .group.regions {
   background-color: var(--blue-500);
 }
+
+.group.regions,
 .group.regions h2 {
   color: white;
 }
@@ -294,6 +296,7 @@ details > summary {
 }
 
 #results > li {
+  color: black;
   background: #FFFFFF;
   box-shadow: var(--shadow-card);
   border-radius: var(--rounder-corner);
@@ -359,6 +362,10 @@ details > summary {
   border-radius: var(--rounder-corner);
   padding: var(--half-unit);
   width: 25%;
+}
+
+#missing-data-regions span {
+  margin-right: 10px;
 }
 
 @media (max-width: 50rem) {
@@ -427,7 +434,7 @@ details > summary {
       <span class="accent">Region Picker</span>
     </h1>
     <p>This tool helps you pick a Google Cloud region considering approximated carbon footprint, price and latency.</p>
-    <p>This is not an officially supported Google product and does not cover all <a href="https://cloud.google.com/about/locations">Google Cloud locations</a>. Last updated in 2023.</p>
+    <p>This is not an officially supported Google product and does not cover all <a href="https://cloud.google.com/about/locations">Google Cloud locations</a>. Data last updated in 2023.</p>
 
     <form class="params">
       <h2>Optimize for</h2>
@@ -497,6 +504,9 @@ details > summary {
 
 <div class="group regions">
   <div class="content">
+    <div id="missing-data-warning" hidden>
+      <p>Data missing for <span id="missing-data-regions"></span></p>     
+    </div>
     <h2>Recommended regions</h2>
     <ol id="results" class="short">
       <!-- Keep placeholders results to avoid layout shift -->
