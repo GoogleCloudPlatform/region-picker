@@ -185,9 +185,9 @@ function printResults(results) {
   const list = document.getElementById('results');
 
   if(!document.startViewTransition) {
-    updateList(list, results);
+    updateList(list, results.sorted);
   } else {
-    document.startViewTransition(() => updateList(list, results));
+    document.startViewTransition(() => updateList(list, results.sorted));
   }
 }
 

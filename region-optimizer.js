@@ -75,6 +75,7 @@ function keepOnlyAllowedRegionsFromResults(allowedRegions, sortedResults) {
 
 function rankRegions(regions, inputs) {
     let results = [];
+    let missingData = [];
     let latencyData;
 
     normalizeAttributes(regions, cfeAttr);
@@ -98,14 +99,18 @@ function rankRegions(regions, inputs) {
     for (const region in regions) {
         let score = 0;
         // price: lower is better
-        score += (1 - regions[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
+        if(inputs.weights.price > 0) {
+            score += (1 - regions[region]?.[priceAttr + normalizedSuffix]) * inputs.weights.price;
+        }
         // carbon
-        if (regions[region]?.[cfeAttr] !== undefined) {
-            // CFE: higher is better
-            score += regions[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon;
-        } else {
-            // Carbon Intensity: Lower is better
-            score += (1 - regions[region]?.[carbonIntensityAttr + normalizedSuffix]) * inputs.weights.carbon;
+        if(inputs.weights.carbon > 0) {
+            if (regions[region]?.[cfeAttr] !== undefined) {
+                // CFE: higher is better
+                score += regions[region]?.[cfeAttr + normalizedSuffix] * inputs.weights.carbon;
+            } else {
+                // Carbon Intensity: Lower is better
+                score += (1 - regions[region]?.[carbonIntensityAttr + normalizedSuffix]) * inputs.weights.carbon;
+            }
         }
 
         if (inputs.weights.latency > 0 && inputs.locations.length > 0) {
@@ -119,6 +124,10 @@ function rankRegions(regions, inputs) {
                 properties: regions[region],
                 score: score,
             });
+        } else {
+            missingData.push({
+                region: region,
+            })
         }
     }
 
@@ -128,7 +137,10 @@ function rankRegions(regions, inputs) {
 
     const resultFilteredSorted = keepOnlyAllowedRegionsFromResults(inputs.allowedRegions, resultSorted);
 
-    return resultFilteredSorted;
+    return {
+        sorted: resultFilteredSorted,
+        missingData
+    };
 }
 
 /*
