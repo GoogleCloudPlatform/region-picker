@@ -132,10 +132,22 @@
       "longitude": 7.6869
    },
    "me-west1":{
-      "name":"Tel Aviv, Isral",
+      "name":"Tel Aviv, Israel",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg",
       "latitude": 32.0853,
       "longitude": 34.7818
+   },
+   "me-central1":{
+      "name":"Doha, Qatar",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg",
+      "latitude": 25.2854,
+      "longitude": 51.5310
+   },
+   "me-central2":{
+      "name":"Dammam, Kingdom of Saudi Arabia",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg",
+      "latitude": 26.4207,
+      "longitude": 50.0888
    },
    "northamerica-northeast1":{
       "name":"Montréal, Canada",
