@@ -1,4 +1,5 @@
 {
+    "africa-south1":           {"gce": 0.028529},
     "asia-east1":              {"gce": 0.025255},
     "asia-east2":              {"gce": 0.030519},
     "asia-northeast1":         {"gce": 0.028026},
@@ -20,6 +21,7 @@
     "europe-west6":            {"gce": 0.030519},
     "europe-west8":            {"gce": 0.025302},
     "europe-west9":            {"gce": 0.025302},
+    "europe-west10":           {"gce": 0.03358985},
     "europe-west12":           {"gce": 0.02813695},
     "me-west1":                {"gce": 0.02399275},
     "me-central1":             {"gce": 0.02650108},
