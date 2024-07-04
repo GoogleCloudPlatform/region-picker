@@ -1,5 +1,9 @@
 # Updating data 
 
+## Change update date
+
+In [`index.html`](index.html), change the text to the last updated date.
+
 ## Adding new regions
 
 1. Open the file [`data/regions.json`](data/regions.json)
