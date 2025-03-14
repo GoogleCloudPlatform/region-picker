@@ -80,7 +80,7 @@ async function fetchData() {
 
   // Fetch data in parrallel
   await Promise.all([
-      fetch("data/data.csv")
+      fetch("data/carbon.csv")
           .then(data => data.text())
           .then(text => carbonData = parseCarbonCSV(text)),
       fetch("data/prices.json")

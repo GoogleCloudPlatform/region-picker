@@ -4,7 +4,7 @@ handlers:
   static_files: index.html
   upload: index.html
   http_headers:
-    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'self'; connect-src 'self';"
+    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'self' ; connect-src 'self';"
 
 - url: /region-picker/
   static_files: index.html
