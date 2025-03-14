@@ -3,19 +3,29 @@ handlers:
 - url: /region-picker
   static_files: index.html
   upload: index.html
+  http_headers:
+    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'unsafe-inline' 'strict-dynamic' http: https:;"
 
 - url: /region-picker/
   static_files: index.html
   upload: index.html
+  http_headers:
+    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'unsafe-inline' 'strict-dynamic' http: https:;"
   
 - url: /region-picker/(.+)
   static_files: \1
   upload: (.*)
+  http_headers:
+    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'unsafe-inline' 'strict-dynamic' http: https:;"
 
 - url: /(.+)
   static_files: \1
   upload: (.*)
+  http_headers:
+    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'unsafe-inline' 'strict-dynamic' http: https:;"
 
 - url: /
   static_files: index.html
   upload: index.html
+  http_headers:
+    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'unsafe-inline' 'strict-dynamic' http: https:;"
