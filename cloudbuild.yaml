@@ -1,6 +1,6 @@
 steps:
 # Used to generate script sha for Content Security Policy
-- name: 'generate-sha'
+- name: 'node'
   entrypoint: 'node'
   args: ['generate-sha.js']
 
