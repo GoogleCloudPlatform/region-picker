@@ -3,29 +3,25 @@ handlers:
 - url: /region-picker
   static_files: index.html
   upload: index.html
+  # http_headers are populated from running generate-sha.js
   http_headers:
-    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self';"
-
 - url: /region-picker/
   static_files: index.html
   upload: index.html
+  # http_headers are populated from running generate-sha.js
   http_headers:
-    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self';"
-  
 - url: /region-picker/(.+)
   static_files: \1
   upload: (.*)
+  # http_headers are populated from running generate-sha.js
   http_headers:
-    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self';"
-
 - url: /(.+)
   static_files: \1
   upload: (.*)
+  # http_headers are populated from running generate-sha.js
   http_headers:
-    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self';"
-
 - url: /
   static_files: index.html
   upload: index.html
+  # http_headers are populated from running generate-sha.js
   http_headers:
-    Content-Security-Policy: "base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self';"
