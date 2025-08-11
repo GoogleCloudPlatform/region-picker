@@ -582,5 +582,13 @@ details > summary {
   </li>
 </template>
 
-<script type="module" src="index.js"></script>
+<script>
+  // Use inline script because of Content Security Policy
+  var scriptUrl = "index.js";
+  var scriptElement = document.createElement('script');
+  scriptElement.async = false;
+  scriptElement.type = "module";
+  scriptElement.src = scriptUrl;
+  document.body.appendChild(scriptElement);
+</script>
 </body></html>
